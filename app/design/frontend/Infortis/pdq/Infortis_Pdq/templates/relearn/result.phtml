@@ -1,0 +1,85 @@
+<?php
+/**
+ * Inchoo Catalog custom search result
+ *
+ * @see Inchoo_Search_Block_Result
+ */
+?>
+<aside class="app-guide inner">
+	<h2>Application Guide</h2>
+	<?php echo $this->getLayout()->createBlock('inchoo_search/form')->setTemplate('inchoo/search/form.phtml')->toHtml() ?>  
+	<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('find-distributor')->toHtml() ?> 
+	<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('find-retailer')->toHtml() ?> 
+</aside>
+<div class="section">
+	<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+	<?php if($this->getResultCount()): ?>
+		<p class="custom-search-amount">
+			<?php echo $this->helper('catalogsearch')->__('<strong>%d item(s)</strong> were found using the following search criteria', $this->getResultCount()); ?>
+		</p>
+	<?php else: ?>
+		<p class="error-msg"><?php echo $this->helper('catalogsearch')->__('No items were found using the following search criteria.');?> <a href="<?php echo $this->getFormUrl(); ?>"><?php echo $this->helper('catalogsearch')->__('Modify your search'); ?></a></p>
+	<?php endif; ?>
+
+	<div class="advanced-search-summary">
+		<?php $searchCriterias=$this->getSearchCriterias(); ?>
+			<?php foreach (array('left', 'right') as $side): ?>
+				<?php if(@$searchCriterias[$side]): ?>
+					<ul>
+						<?php foreach($searchCriterias[$side] as $criteria): ?>
+							<li><strong><?php echo $this->escapeHtml($this->helper('catalog')->__($criteria['name'])); ?>:</strong> <?php echo $this->escapeHtml($criteria['value']); ?></li>
+						<?php endforeach ?>
+					</ul>
+				<?php endif ?>
+			<?php endforeach ?>
+		<?php if($this->getResultCount()): ?>
+			<p>
+				<?php echo $this->helper('catalogsearch')->__("Don't see what you're looking for?"); ?>
+				<a href="<?php $parms = $this->getRequest()->getQuery();	$parms = array_map('intval', $parms); unset($parms['cat']); echo $this->getUrl('search/results/for',array('_query' => $parms)); ?>"><?php echo $this->helper('catalogsearch')->__('Modify your search'); ?></a>
+			</p>
+		<?php endif ?>
+	</div>
+
+	<?php if ($this->getResultCount()): ?>
+		<?php
+		if(!isset($_GET['cat'])) {
+			$_productCollection = Mage::getModel('catalogsearch/advanced')->getProductCollection(); 
+			foreach($_productCollection as $_product) {
+				$product = Mage::getModel('catalog/product')->load($_product->getId());
+				$categoryIds = $product->getCategoryIds();
+				foreach ($categoryIds as $cid)
+				$catids[] = $cid;
+				if(isset($catids) && !empty($catids))
+					$productCats = array_count_values($catids);
+			}
+		}
+		?>
+		<?php if (isset($productCats) && !empty($productCats)): ?>
+			<div class="productWrapper">
+				<?php foreach($productCats as $catId=>$productcount): ?>
+					<?php
+						$category = Mage::getModel('catalog/category')->load($catId);
+						$parms = $this->getRequest()->getQuery();
+						$parms['cat'] = $category->getId();
+						$parms = array_map('intval', $parms);
+					?>
+					<div class="proInfoCol product-blocks">
+						<div class="p-img">
+							<a title="<?php echo $category->getName(); ?>" href="<?php echo $this->getUrl('search/results/for',array('_query' => $parms)); ?>">
+								<img alt="<?php echo $category->getName(); ?>" 
+										src="<?php if(!empty($category->getImageUrl())) echo $category->getImageUrl(); else echo Mage::getModel('catalog/product')->getSmallImageUrl(200,200); ?>" />
+							</a>
+						</div>
+						<div class="p-text">
+							<h3><a title="<?php echo $category->getName(); ?>" href="<?php echo $this->getUrl('search/results/for',array('_query' => $parms)); ?>"><?php echo $category->getName().' ('.$productcount.')'; ?></a></h3>
+							<p><?php echo $category->getmetaTitle(); ?></p>
+						</div>
+					</div>
+				<?php endforeach ?>
+			</div>
+		<?php else: ?>
+			<?php echo $this->getProductListHtml() ?>
+		<?php endif ?>
+		<?php echo $this->getSearchCriterias() ?>
+	<?php endif ?>
+</div>

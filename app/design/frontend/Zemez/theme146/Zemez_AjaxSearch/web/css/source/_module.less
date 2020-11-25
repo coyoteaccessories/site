@@ -1,0 +1,139 @@
+/*
+*   Zemez_AjaxSearch
+*/
+
+// Local vars
+
+@_ajax-search__dropdown-bg: #ffffff;
+@_ajax-search__dropdown-indent: 10px;
+@_ajax-search__border: 1px #ccc;
+@_ajax-search__shadow-ambient: 0 0 2px 0 rgba(0, 0, 0, .25);
+@_ajax-search__dropdown-indent: 10px;
+
+@_ajax-search__product-name-size: 12px;
+
+// Main Styles
+
+& when (@media-target = 'mobile') {
+    #search_mini_form {
+        position: relative;
+    }
+
+    body.ajax-loading #search.input-text:focus {
+        // if input has dark background, set "loader-white.gif" for "background-image" property.
+        background-image: url(../images/loader-dark.gif);
+        background-position: 2px 50%;
+        background-repeat: no-repeat;
+        background-size: 15px 15px;
+    }
+
+    #search_mini_form {
+        input[aria-haspopup="false"] + #search_autocomplete ul[role=listbox] {
+            overflow: hidden;
+        }
+
+        .search-autocomplete {
+            overflow: hidden;
+            position: static;
+            max-height: 350px;
+            z-index: 100;
+            color: inherit;
+            background: @_ajax-search__dropdown-bg;
+            box-shadow: @_ajax-search__shadow-ambient;
+
+            &:after {
+                content: '';
+                position: absolute;
+                top: 320px;
+                left: 0;
+                width: 120%;
+                height: 30px;
+                background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 72%);
+                background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 72%);
+                background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 72%);
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffffff', endColorstr='#ffffff', GradientType=0);
+                z-index: 1;
+            }
+
+            ul[role=listbox] {
+                overflow-y: scroll;
+                position: static;
+                max-height: 350px;
+                margin-right: -20px;
+                z-index: 10;
+                display: block;
+            }
+
+            .search-item .price-box {
+                .price-box();
+
+                .price-label {
+                    display: none;
+                }
+            }
+
+            ul li.search-item {
+                border-bottom: @_ajax-search__border;
+                border-top: none;
+                padding: @_ajax-search__dropdown-indent;
+                padding-right: @_ajax-search__dropdown-indent + 20px;
+
+                .amount {
+                    position: static;
+                }
+
+                a {
+                    display: block;
+                    overflow: hidden;
+                    line-height: normal;
+                    text-decoration: none;
+                    margin: -1 * @_ajax-search__dropdown-indent;
+                    padding: @_ajax-search__dropdown-indent;
+                    > * {
+                        float: right;
+                        width: 85%;
+                    }
+
+                    .search-thumb {
+                        float: left;
+                        width: 15%;
+                        padding-right: 10px;
+                        box-sizing: border-box;
+                    }
+
+                    .qs-option-name {
+                        font-size: @_ajax-search__product-name-size;
+                        display: block;
+                        margin-bottom: 5px;
+                    }
+
+                    .price {
+                        display: block;
+                    }
+                    &:hover {
+                        color: inherit;
+                    }
+                }
+            }
+        }
+    }
+}
+
+& when (@media-target = 'desktop') {
+    #search_mini_form {
+        .search-autocomplete {
+            ul li.search-item {
+                a {
+                    > * {
+                        width: 70%;
+                    }
+
+                    .search-thumb {
+                        width: 30%;
+                        max-width: 50px;
+                    }
+                }
+            }
+        }
+    }
+}

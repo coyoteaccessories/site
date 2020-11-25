@@ -1,0 +1,29 @@
+<?php /** @var \Zemez\ShopByBrand\Block\Brand\Product\Brand $block */ ?>
+
+<?php
+$helper = $this->helper('Zemez\ShopByBrand\Helper\Data');
+$brand = $block->getBrand();
+?>
+
+<div class="product-brand"
+    <?php if ($helper->getProductPageSelector() && ($helper->isProductShowName() || $helper->isProductShowLogo())): ?>
+        data-mage-init='{"brandAddProductPage": {"selector": "<?= /* @escapeNotVerified */ $helper->getProductPageSelector() ?>"}}'
+    <?php endif; ?>
+>
+    <meta itemprop="brand" content="<?= /* @escapeNotVerified */ $brand->getName() ?>" />
+    <?php if ($helper->isProductShowName()): ?>
+        <h4 class="product-brand-name">
+            <a href="<?= /* @escapeNotVerified */ $brand->getUrl() ?>">
+                <span><?= /* @escapeNotVerified */ $brand->getName() ?></span>
+            </a>
+        </h4>
+    <?php endif; ?>
+
+    <?php if ($helper->isProductShowLogo()): ?>
+        <div class="product-brand-logo">
+            <a href="<?= /* @escapeNotVerified */ $brand->getUrl() ?>">
+                <img src="<?= /* @escapeNotVerified */ $brand->getImageProductBannerUrl() ?>" alt="" />
+            </a>
+        </div>
+    <?php endif; ?>
+</div>

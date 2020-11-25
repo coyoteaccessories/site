@@ -1,0 +1,37 @@
+# 2020-11-26 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+# http://stackoverflow.com/questions/987142
+# http://stackoverflow.com/questions/9162919
+# http://stackoverflow.com/questions/8024924#comment15884195_8025106
+*
+!*/
+!/.editorconfig
+!/.gitignore
+!/composer.json
+!/readme.md
+!/app/code/**/*
+!/app/design/frontend/Infortis/**/*
+!/app/design/frontend/Zemez/**/*
+!/app/etc/config.php
+# 2020-11-26 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+# It was changed by someone at 2020-07-02
+!/pub/user.ini
+/update/
+# 2020-11-21 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+# "How to fix the «Invalid template file» / «require_js.phtml» failure of Magento ≥ 2.3 in Windows?":
+# https://mage2.pro/t/5774
+!/vendor/magento/framework/View/Element/Template/File/Validator.php
+# 2020-11-26 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+# It was added by someone at 2020-07-23
+!/vendor/magento/module-customer/Controller/Account/CreatePost.php
+# 2020-11-26 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+# It was changed by someone at 2020-10-13
+!/vendor/magento/module-inventory-shipping/Observer/SourceDeductionProcessor.php
+# 2020-11-26 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+# It was changed by someone at 2020-09-02
+!/vendor/magento/module-sales/etc/webapi.xml
+/dev
+/vendor/codeception
+/vendor/magento/framework/Test
+/vendor/magento/magento2-base
+/vendor/magento/magento2-functional-testing-framework
+/vendor/tubalmartin

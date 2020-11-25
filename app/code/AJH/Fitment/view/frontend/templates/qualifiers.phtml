@@ -1,0 +1,29 @@
+<?php
+
+$qualifiers = $block->getQualifiers();
+$html = "";
+
+if (is_array($qualifiers)) {
+    foreach ($qualifiers as $key => $qualifier) {
+        $qualifiers_count = count($qualifier['FitmentValue']);
+        if ($qualifiers_count) {
+            $id = str_replace(' ', '_', strtolower($qualifier['Description']));
+            $html .= "<select name=\"qualifiers[]\" id=\"{$id}\">";
+
+            $html .= "<option value=\"\">{$qualifier['Description']}</option>";
+
+            foreach ($qualifier['FitmentValue'] as $fitmentValue) {
+                $html .= "<option value=\"{$fitmentValue->ID}\">{$fitmentValue->Name}</option>";
+            }
+
+            $html .= "</select>";
+        }
+
+    }
+//        if ($html === '') {
+//            $html .= '<select name="qualifiers[]" id="no-qualifiers" style="display: none;" disabled="disabled"><option>No Qualifiers</option></select>';
+//        }
+}
+
+
+echo $html;

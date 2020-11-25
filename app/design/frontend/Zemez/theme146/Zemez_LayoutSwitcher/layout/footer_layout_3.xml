@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="footer-container" htmlClass="page-footer layout-3" />
+
+        <referenceContainer name="footer.grid-container" />
+        <referenceContainer name="footer.google-map" remove="true" />
+
+        <referenceBlock name="footer_col_1" remove="true" />
+        <referenceBlock name="footer_col_2" remove="true" />
+
+        <referenceContainer name="footer.grid-col1" htmlClass="col-xxl-5">
+            <block class="Magento\Cms\Block\Block" name="footer_l2_col_1" before="-">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">footer_l3_col_1</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+
+        <referenceContainer name="footer.grid-col2" htmlClass="col-xxl-2 logo-wrap">
+            <block class="Magento\Theme\Block\Html\Header\Logo" name="footer.logo" template="Zemez_ThemeOptions::html/header/logo.phtml" />
+        </referenceContainer>
+
+        <referenceContainer name="footer.grid-row">
+            <container name="footer.grid-col3" htmlClass="col-xxl-5" htmlTag="div" />
+        </referenceContainer>
+
+        <move element="theme_options.social_links.footer" destination="footer.grid-col3" after="-"/>
+    </body>
+</page>

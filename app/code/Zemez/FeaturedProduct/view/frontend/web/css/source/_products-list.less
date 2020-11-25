@@ -1,0 +1,38 @@
+/* 
+ * 	Featured Product by Zemez
+ */
+
+// Import
+@import '_variables.less';
+
+// Main Styles
+
+& when (@media-target = 'mobile'){
+    .block.widget {
+        &.featured:not(.sidebar-featured) {
+            .products-list .product-items {
+                .product-label {
+                    left: 10px;
+                    right: auto;
+                }
+            }
+
+            .custom-columns .products-list .product-item {
+                float: left;
+            }
+        }
+    }
+}
+
+// Carousel
+& when (@media-target = 'mobile'){
+    .block.featured:not(.sidebar-featured) {
+        .block-content .products-list .owl-carousel,
+        .custom-columns .products-list .product-items {
+            .product-item-info .product-item-photo {
+                float: left;
+                width: 33%;
+            }
+        }
+    }
+}

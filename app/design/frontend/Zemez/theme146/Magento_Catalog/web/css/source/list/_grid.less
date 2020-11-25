@@ -1,0 +1,117 @@
+//
+//  Grid Variables
+//  ---------------------------------------------
+
+& when (@media-target = 'mobile') {
+    .grid.products-grid {
+        .product-item-details {
+            padding-top: 10px;
+        }
+
+        .product-reviews-summary {
+            display: block;
+
+            .rating-summary {
+                display: inline-block;
+            }
+
+            .reviews-actions {
+                display: none;
+            }
+        }
+
+        .actions-secondary {
+            .make-flex();
+            flex-wrap: wrap;
+
+            .action {
+                margin-right: 10px;
+            }
+        }
+
+        @media (max-width: (@screen__m - 1)) {
+            .product-img {
+                background-color: @color-lightest;
+            }
+            .action.tocart {
+                width: 100%;
+                padding-top: 6px;
+                padding-bottom: 6px;
+            }
+
+            .timer-wrapper {
+                margin-bottom: 35px;
+            }
+        }
+
+        @media (max-width: (@screen__xs - 1)) {
+            .product.name {
+                font-size: 12px;
+            }
+        }
+    }
+
+    // RTL
+    html.rtl {
+
+    }
+}
+
+& when (@media-target = 'desktop') {
+    .grid.products-grid {
+        .product-img {
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: @color-white;
+                opacity: 0;
+                transition: 0.3s opacity ease;
+                z-index: 3;
+            }
+
+            .action.tocart {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%) scale(0.5);
+                opacity: 0;
+                white-space: nowrap;
+                z-index: 3;
+
+                @media (min-width: @screen__xl) {
+                    min-width: 170px;
+                }
+            }
+        }
+
+        .product-item-info {
+            &:hover {
+                .product-img:before {
+                    opacity: 0.4;
+                }
+
+                .action.tocart {
+                    transform: translate(-50%, -50%) scale(1);
+                    opacity: 1;
+                }
+            }
+        }
+
+        .actions-secondary {
+            .action {
+                &:last-child {
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
+
+            @media (max-width: (@screen__xl - 1)) {
+                font-size: 12px;
+            }
+        }
+    }
+}

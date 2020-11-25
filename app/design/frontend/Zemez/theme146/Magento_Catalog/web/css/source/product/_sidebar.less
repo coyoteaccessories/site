@@ -1,0 +1,80 @@
+//
+//  Sidebar
+//  ---------------------------------------------
+
+& when (@media-target = 'mobile') {
+    .sidebar {
+        [role="tablist"] [role="tabpanel"] {
+            margin-bottom: 0;
+        }
+
+        .collapsible-block,
+        .filter-wrapper {
+            position: relative;
+            margin-bottom: 20px;
+
+            @media (min-width: @screen__l) {
+                margin-bottom: 68px;
+            }
+        }
+
+        .collapsible-block {
+            .block-title {
+                margin-bottom: 12px;
+            }
+
+            .opener {
+                .font-icon(@themeicon-up107);
+                display: block;
+                box-sizing: border-box;
+                position: relative;
+                padding-right: 20px;
+                padding-bottom: 12px;
+                border-bottom: 1px solid @border-color__base;
+                margin-bottom: 12px;
+                color: @color-dark;
+                cursor: pointer;
+                line-height: 26px;
+                &:before {
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    width: 26px;
+                    height: 26px;
+                    box-sizing: border-box;
+                    text-align: center;
+                    font-size: 14px;
+                    line-height: 1;
+                    padding: 6px 0;
+                }
+
+                &[aria-expanded="false"]:before {
+                    content: @themeicon-down64;
+                }
+            }
+        }
+        .product-items .product-item-info {
+            &::after {
+                display: block;
+                content: "";
+                clear: both;
+            }
+        }
+    }
+
+    // RTL
+    html.rtl {
+        .sidebar {
+            .collapsible-block {
+                .opener {
+                    padding-right: 0;
+                    padding-left: 20px;
+                    &:before {
+                        right: auto;
+                        left: 0;
+                    }
+                }
+            }
+        }
+    }
+}

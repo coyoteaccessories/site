@@ -1,0 +1,63 @@
+
+& when (@media-target = 'mobile') {
+    // Main styles
+    .posts-grid {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: floor((@blog_grid-gutter / -2));
+        margin-right: floor((@blog_grid-gutter / -2));
+
+        .post-item {
+            padding-right: floor((@blog_grid-gutter / 2));
+            padding-left: floor((@blog_grid-gutter / 2));
+            box-sizing: border-box;
+            margin-bottom: 30px;
+            flex-basis: (100% / @grid-posts-count__mobile);
+            width: (100% / @grid-posts-count__mobile);
+            max-width: (100% / @grid-posts-count__mobile);
+            .posts-count();
+        }
+
+        // Post data
+        .post-data {
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        &.owl-carousel {
+            width: auto;
+            div.post-item {
+                flex-basis: 100%;
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+    }
+}
+
+
+& when (@media-target = 'desktop') {
+    .page-layout-1column .posts-grid .post-item {
+        .posts-count('__1-column');
+    }
+
+    .page-layout-3column .posts-grid .post-item {
+        .posts-count('__3-columns');
+    }
+}
+
+
+.posts-count(@page-layout: '') {
+    @posts-breakpoints: "grid-posts@{page-layout}__breakpoints";
+    .grid-posts-count(@i: 1) when (@i =< length(@@posts-breakpoints)) {
+        @breakpoint: extract(@@posts-breakpoints, @i);
+        @count: "grid-posts-count@{page-layout}__@{breakpoint}";
+        @media (min-width: ~"@{screen__@{breakpoint}}") {
+            flex-basis: (100% / @@count);
+            width: (100% / @@count);
+            max-width: (100% / @@count);
+        }
+        .grid-posts-count(@i + 1);
+    }
+    .grid-posts-count();
+}

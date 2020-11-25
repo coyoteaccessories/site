@@ -1,0 +1,188 @@
+//
+//  Helpers
+//  _____________________________________________
+
+& when (@media-target = 'mobile') {
+    .d-none {
+        display: none;
+    }
+
+    .no-gutter {
+        margin-left: 0;
+        margin-right: 0;
+        [class*='col-'] {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .banner {
+            margin-bottom: 0;
+        }
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .text-right {
+        text-align: right;
+    }
+
+    .justify-content-center {
+        justify-content: center;
+    }
+
+    .bg-dark {
+        background: @color-dark;
+    }
+
+    .bg-dark, .page-top + .page-header {
+        .sm-header-nav-wrap.isStuck {
+            background-color: @color-dark;
+        }
+    }
+
+    .bg-dark, .page-top + .page-header .sm-header-nav-wrap {
+        color: @color-white;
+
+        h1, h2, h3, h4, h5, h6 {
+            color: @color-white;
+        }
+
+        .logo-text {
+            color: @color-white;
+        }
+
+        .block-search #search_mini_form .field.search .control input {
+            border-bottom-color: @color-light;
+
+            &::placeholder {
+                color: @color-light;
+                opacity: 1;
+            }
+
+            &:-ms-input-placeholder {
+                color: @color-light;
+            }
+
+            &::-ms-input-placeholder {
+                color: @color-light;
+            }
+        }
+
+        div.switcher .options ul.switcher-dropdown,
+        .minicart-wrapper .block-minicart,
+        #search_mini_form .search-autocomplete,
+        .navigation .level0 .submenu,
+        .sm-header_customer-menu.ui-dialog-content {
+            background-color: @color-default;
+        }
+
+        .product-item .product-item-photo,
+        .search-autocomplete ul li:hover, .search-autocomplete ul li.selected {
+            background-color: lighten(@color-default, 5%);
+        }
+
+        .product-item-name, .megamenu-wrapper .mm-submenu .mm-submenu {
+            color: @color-lightest;
+        }
+
+        .price-container {
+            color: @color-white;
+        }
+
+        .minicart-wrapper .block-minicart .minicart-items .product.options[role="tablist"] .content {
+            background-color: @color-dark;
+        }
+
+        #search_mini_form .search-autocomplete::after {
+            background: -moz-linear-gradient(top, rgba(49, 49, 48, 0) 0%, rgba(49, 49, 48, 1) 72%);
+            background: -webkit-linear-gradient(top, rgba(49, 49, 48, 0) 0%, rgba(49, 48, 49, 1) 72%);
+            background: linear-gradient(to bottom, rgba(49, 49, 48, 0) 0%, rgba(49, 49, 48, 1) 72%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00313130', endColorstr='#313130', GradientType=0);
+        }
+
+        @media (max-width: (@screen__m - 1)) {
+            nav.navigation {
+                color: @sm-header-text-color;
+                background: @color-default;
+
+                a, .submenu:not(:first-child) ul > li a {
+                    color: @color-white;
+                }
+            }
+        }
+
+        @media (min-width: @screen__m) {
+            div.mage-dropdown-dialog {
+                background-color: @color-default;
+            }
+        }
+    }
+
+    .page-header.bg-dark {
+        border-bottom: none;
+    }
+
+    .bg-light {
+        background: @color-lightest;
+        color: @color-default;
+    }
+
+    .bg-primary {
+        background: @color-primary;
+        color: @color-white;
+    }
+
+    .bg-white {
+        background: @color-white;
+        color: @color-black;
+    }
+
+    .color-primary {
+        color: @color-primary;
+
+        &.a, a {
+            &:hover {
+                color: @color-dark;
+            }
+        }
+    }
+
+    .color-white {
+        color: @color-white;
+    }
+
+    .hidden-mobile {
+        @media (max-width: (@screen__m - 1)) {
+            &, &.action {
+                display: none;
+            }
+        }
+    }
+
+    @media (min-width: @screen__xs) {
+        .col-xs-4.gutter-left-percentage {
+            padding-left: ((@gutter__width * 50%) / 1300px);
+        }
+    }
+}
+
+& when (@media-target = 'desktop') {
+    .margin-desktop-none {
+        margin: 0;
+    }
+
+    @media (min-width: @screen__xl) {
+        .col-xl-8.gutter-right-percentage {
+            padding-right: ((@gutter__width * 50%) / 1950px);
+        }
+        .gutter-bottom-percentage {
+            padding-bottom: ((@gutter__width * 100%) / 650px);
+            margin-bottom: 0;
+            > * {
+                margin: 0;
+            }
+        }
+    }
+}

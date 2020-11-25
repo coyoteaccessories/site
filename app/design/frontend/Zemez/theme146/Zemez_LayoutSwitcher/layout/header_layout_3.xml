@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="header.container" htmlClass="page-header layout-3" />
+
+        <move element="header-wrapper.left" destination="sm-header.nav.wrap" before="-"/>
+        <move element="header-wrapper.right" destination="sm-header.nav.wrap" after="-"/>
+        <move element="logo" destination="header-wrapper.left" before="-"/>
+        <move element="header.switchers" destination="header.panel" after="-"/>
+        <move element="sm.header.customer.menu.wrap" destination="header.panel" before="header.switchers"/>
+
+        <referenceContainer name="header.panel">
+            <container name="header_info_wrap" htmlClass="header-info" htmlTag="div" before="-">
+                <block class="Magento\Cms\Block\Block" name="header_info_block">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">header_info_block</argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceContainer>
+    </body>
+</page>

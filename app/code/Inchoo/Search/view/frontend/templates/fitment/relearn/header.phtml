@@ -1,0 +1,12 @@
+<?php
+$relearnUrl = $block->getRelearnUrl();
+?>
+<div class="aF-header-relearn">
+<?php if ($relearnUrl): ?>
+        <a href="<?php echo $relearnUrl ?>" target="_blank">View </a>
+        <span class="aF-header-relearn-lbl">Re-learn procedure</span>
+<?php else: ?>
+        <span class="aF-header-relearn-lbl">Re-learn procedure </span>
+        <span class="aF-header-relearn-noProc">Not available</span>
+<?php endif ?>
+</div>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--
+/**
+ *
+ * Copyright © 2019 Zemez. All rights reserved.
+ * See COPYING.txt for license details.
+ *
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <update id="Zemez_Base::modules"
+             title="Zemez"
+             module="Zemez_FilmSlider"
+             sortOrder="30"
+             resource="Zemez_Base::modules"/>
+
+        <add id="Zemez_FilmSlider::filmslider_index" title="Film Slider"
+             module="Zemez_FilmSlider"
+             sortOrder="20"
+             parent="Zemez_Base::modules"
+             dependsOnModule="Zemez_FilmSlider"
+             resource="Zemez_FilmSlider::filmsliders"/>
+
+        <add id="Zemez_FilmSlider::filmslider_grid" title="Sliders"
+             module="Zemez_FilmSlider"
+             sortOrder="10"
+             parent="Zemez_FilmSlider::filmslider_index"
+             action="filmslider/slider/index"
+             resource="Zemez_FilmSlider::filmsliders"/>
+    </menu>
+</config>

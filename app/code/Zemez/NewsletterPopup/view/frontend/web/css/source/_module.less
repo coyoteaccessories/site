@@ -1,0 +1,145 @@
+// Local vars
+
+@newsletter-popup_block-indent: 48px;
+@newsletter-popup_title-size: 24px;
+@newsletter-popup_title-color: #2f2f2f;
+@newsletter-popup_content-color: #a5a5a5;
+@newsletter-popup_social-bg: #f2f2f2;
+@newsletter-popup_block-color: #dcdcdc;
+@newsletter-popup_input-color: #8f8f8f;
+
+& when (@media-target = 'mobile'){
+// Main Styles
+
+    .newsletter-popup.modal-popup {
+// Modal
+        .modal-inner-wrap {
+            margin-top: 12%;
+        }
+
+// Header
+        header.modal-header {
+            padding: (@newsletter-popup_block-indent - 10) @newsletter-popup_block-indent 0 @newsletter-popup_block-indent;
+            .action-close {
+                padding: 25px;
+
+                &::before {
+                    font-family: 'FontAwesome';
+                    content: '\f00d';
+                    font-size: 24px;
+                    line-height: 24px;
+                    color: @newsletter-popup_block-color;
+                }
+
+                &:hover::before {
+                    color: #c5c5c5;
+                }
+            }
+
+            h1.modal-title {
+                color: @newsletter-popup_title-color;
+                font-size: @newsletter-popup_title-size;
+                font-weight: 300;
+                border-bottom: none;
+                padding: 0;
+            }
+        }
+
+// Content
+        .modal-content {
+            padding: (@newsletter-popup_block-indent - 18) @newsletter-popup_block-indent @newsletter-popup_block-indent @newsletter-popup_block-indent;
+
+            .content-text {
+                padding-bottom: 20px;
+                color: @newsletter-popup_content-color;
+            }
+
+            .block.newsletter {
+                margin: 0;
+
+                .field .control {
+                    input[id^="newsletter"] {
+                        height: auto;
+                        border-color: @newsletter-popup_block-color;
+                        color: @newsletter-popup_input-color;
+                        padding: 16px 18px 17px 18px;
+                        outline: none;
+                        box-shadow: none;
+                        font-size: 14px;
+                        line-height: 18px;
+                    }
+
+                    &::before {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        .buttons-container {
+            padding: 17px 0 0;
+
+            button {
+                padding: 12px 27px;
+                margin: 0 7px 7px 0;
+                -webkit-transition: 0.2s;
+                -moz-transition: 0.2s;
+                -o-transition: 0.2s;
+                transition: 0.2s;
+            }
+            button.subscribe {
+                font-weight: 700;
+            }
+            button:not(.subscribe) {
+                border-width: 2px;
+            }
+        }
+
+// Footer
+        footer.modal-footer {
+            padding: 0;
+
+            .modal-social {
+                background: @newsletter-popup_social-bg;
+                padding: (@newsletter-popup_block-indent - 14) @newsletter-popup_block-indent (@newsletter-popup_block-indent - 19);
+
+                a {
+                    display: inline-block;
+                    margin-bottom: 5px;
+                    -webkit-transition: 0.2s;
+                    -moz-transition: 0.2s;
+                    -o-transition: 0.2s;
+                    transition: 0.2s;
+
+                    &:hover {
+                        opacity: 0.7;
+                    }
+                }
+            }
+        }
+
+        @media screen and (max-width: 767px) {
+
+// Modal
+            .modal-inner-wrap {
+                margin-top: 7%;
+            }
+
+            .modal-inner-wrap {
+                width: auto !important;
+                margin-right: 20px;
+                margin-left: 20px;
+            }
+
+            .modal-content,
+            footer.modal-footer .buttons-container,
+            footer.modal-footer .modal-social {
+                padding: 10px 15px 10px;
+            }
+
+            header.modal-header {
+                padding: (@newsletter-popup_block-indent - 10) 20px 0;
+            }
+        }
+    }
+}

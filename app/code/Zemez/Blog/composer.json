@@ -1,0 +1,13 @@
+{
+    "name": "zemez/module-blog",
+    "type": "magento2-module",
+    "version": "1.2.0",
+    "autoload": {
+        "psr-4": {"Zemez\\Blog\\":""},
+        "files": [ "registration.php" ]
+    },
+    "extra": {
+        "isStandalone": "true",
+        "magentoVersion": "v2.3.2"
+    }
+}

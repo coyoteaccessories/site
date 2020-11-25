@@ -1,0 +1,42 @@
+<?php
+$qualifiers = $block->getQualifiers()->FitmentQualifier;
+$html = "";
+
+if (is_array($qualifiers)) {
+    foreach ($qualifiers as $key => $value) {
+        $qualifiers_count = count($value->QualifierValues->FitmentValue);
+        if ($qualifiers_count) {
+            $name = str_replace(' ', '_', strtolower($value->QualifierDescription));
+            $onchange = ""; //$qualifiers_count > 1 ? "onchange=\"checkQualifiers(this)\"" : "";
+            $html .= "<select name=\"qualifiers[]\" id=\"{$name}\">";
+            
+            $html .= "<option value=\"\">{$value->QualifierDescription}</option>";
+
+            foreach ($value->QualifierValues->FitmentValue as $fitmentValue) {
+                $html .= "<option value=\"{$fitmentValue->ID}\">{$fitmentValue->Name}</option>";
+            }
+            
+            $html .= "</select>";
+        }
+
+        if ($html === '') {
+            $html .= '<select name="qualifiers[]" id="no-qualifiers" style="display: none;" disabled="disabled"><option>No Qualifiers</option></select>';
+        }
+    }
+} else {
+    if (count($qualifiers->QualifierValues->FitmentValue)) {
+        $name = str_replace(' ', '_', strtolower($qualifiers->QualifierDescription));
+        $html .= '<select name="qualifiers[]" id="' . $name . '">';
+        $html .= "<option value=\"\">{$qualifiers->QualifierDescription}</option>";
+        foreach ($qualifiers->QualifierValues->FitmentValue as $fitmentValue) {            
+            $html .= "<option value=\"" . $fitmentValue->ID . "\">" . $fitmentValue->Name . "</option>";
+        }        
+                
+        $html .= '</select>';
+    } else {
+        $html .= '<select name="qualifiers[]" id="no-qualifiers" style="display: none;" disabled="disabled"><option>No Qualifiers</option></select>';
+    }
+}
+
+
+echo $html;

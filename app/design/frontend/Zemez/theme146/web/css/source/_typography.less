@@ -1,0 +1,45 @@
+// /**
+//  * Copyright © Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Typography
+//  _____________________________________________
+
+.lib-typography(@_font-weight: @font-weight__base) {
+    .lib-css(font-weight, @_font-weight);
+}
+
+& when (@media-common = true) {
+    .items {
+        .lib-list-reset-styles();
+    }
+
+    .headings-styles(@i: 1) when (@i =< 6) {
+        @_font-size: "h@{i}__font-size";
+        @_font-weight: "h@{i}__font-weight";
+        @_line-height: "h@{i}__line-height";
+        .heading-@{i} {
+            font-size: @@_font-size;
+            font-weight: @@_font-weight;
+            line-height: @@_line-height;
+        }
+        .headings-styles(@i + 1);
+    }
+    .headings-styles();
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .headings-styles(@i: 1) when (@i =< 6) {
+        @_font-size-desktop: "h@{i}__font-size-desktop";
+        .heading() when not (@@_font-size-desktop = false) {
+            h@{i}, .heading-@{i} {
+                font-size: @@_font-size-desktop;
+            }
+        }
+        .heading();
+        .headings-styles(@i + 1);
+    }
+    .headings-styles();
+}

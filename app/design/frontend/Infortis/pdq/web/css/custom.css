@@ -1,0 +1,256 @@
+.page-wrapper{
+    border: none;
+}
+
+.product-item-details a.product-item-link {
+    color: #aa1d20 !important;
+}
+
+.proInfoCol.product-blocks{
+    height: 250px;
+    margin-bottom: 30px;
+}
+.proInfoCol.product-blocks .p-img{
+    height: 200px;
+    margin-bottom: 15px;
+}
+
+.fitment-action button {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background: #f44f4f;
+    color: #fff;
+}
+
+.fitment_wrapper.container {
+    margin-bottom: 10px;
+}
+
+.inner-container{
+    width: 100%;
+}
+
+.homepage-content h2{
+    font-family: arial;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 19px 30px;
+    background: #7e0d0f;
+    background: -moz-linear-gradient(top, #7e0d0f 0%, #b22023 100%);
+    background: -webkit-linear-gradient(top, #7e0d0f 0%,#b22023 100%);
+    background: linear-gradient(to bottom, #7e0d0f 0%,#b22023 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7e0d0f', endColorstr='#b22023',GradientType=0 );
+    text-align: center;
+}
+
+.homepage-content .details ul li {
+    font-size: 14px;
+    line-height: 24px;
+    color: #363636;
+    background: url(../images/arrow.png) no-repeat left 6px;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.homepage-content .details{
+    padding: 25px 30px;
+    text-align: center;
+    background: #f1f1f1;        
+}
+
+a.btn {
+    background: #aa1d20;
+    border-radius: 5px;
+    color: #fff;    
+    font-weight: 700;
+    font-size: 13px;
+    padding: 12px 0;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+    border: 1px solid #aa1d20;
+    font-weight: 600;
+    padding: 11px 10px;
+
+    white-space: initial;
+}
+
+a.btn:hover{
+    border: solid 1px #aa1d20;
+    background-color: transparent;
+    color: #aa1d20;
+}
+
+.clearer{
+    height: auto;
+    min-height: 1px;
+}
+
+.category-news.catalog-category-view .page-title-wrapper{
+    display: none;    
+}
+
+.app-guide > h2 {
+    font-family: arial;
+    font-size: 16px;
+    font-weight: bold;
+    color:#fff;
+    border-top-left-radius:10px;
+    border-top-right-radius:10px;
+    padding:19px 30px;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7e0d0f+0,b22023+100 */
+    background: #7e0d0f; /* Old browsers */
+    background: -moz-linear-gradient(top, #7e0d0f 0%, #b22023 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #7e0d0f 0%,#b22023 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #7e0d0f 0%,#b22023 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7e0d0f', endColorstr='#b22023',GradientType=0 ); /* IE6-9 */
+}
+
+.app-form {
+    background: #f1f1f1 none repeat scroll 0 0;
+    float: left;
+    width: 100%;
+    padding: 22px 30px 16px;
+    text-align:left;
+}
+
+.relearn form > div {
+    clear: both;
+    display: block;
+    margin: 10px 0;
+}
+.relearn h3 {
+    margin: 0 0 20px;
+}
+.relearn label {
+    display: block;
+    min-width: 130px;
+    vertical-align: middle;
+    font-size: 15px;
+}
+.relearn select {
+    float: none;
+    width: 100%;
+    border-radius: 5px;
+}
+.relearn .make-img {
+    float: right;
+    width: 50%;
+    text-align: center;
+}
+.relearn-result {
+    margin: 20px 0 0;
+    color: red;
+}
+.relearn-result a {
+    color: red;
+}
+
+
+
+.inner .app-form{
+    margin-bottom:30px;
+}
+
+.app-form .form-grp {
+    width: 100%;
+}
+
+
+.app-form .form-grp label {
+    color: #363636;
+    float: left;
+    font-size: 14px;
+    margin-bottom:6px;
+    width: 100%;
+}
+
+.app-form .form-grp select {
+    color: #363636;
+    float: left;
+    font-size: 12px;
+    width: 100%;
+    border:1px solid #c3c3c3;
+    height:35px;
+    padding:0 14px;
+}
+
+.reset-procedure dl dt {
+    display: inline-block;
+}
+.reset-procedure dl dd {
+    display: inline-block;
+    margin-right: 30px;
+}
+
+.select-fitment-label h3 {
+    line-height: 38px;
+    padding: 0 10px 0 15px;
+    text-transform: uppercase;
+}
+
+.yemamosu-wrap select {    
+    height: 38px;
+    padding-right: 10px;
+}
+
+.owl-stage-outer.owl-height {
+    height: 500px !important;
+}
+
+ul.header.links i a, .top-left-header li a {
+    font-family: Lato, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    padding-left: 5px;
+}
+
+ul.top-left-header li{
+    display: inline;
+}
+
+ul.top-left-header li.first-item{
+    padding-right: 10px;
+    border-right: solid 1px #dedede;
+    border-left: solid 1px #fcfcfc;
+}
+
+ul.top-left-header {
+    margin: 0;
+}
+
+ul.top-left-header li+li{
+    padding-left: 10px;
+
+}
+
+.header-top-container {
+    border-bottom: solid 1px #dedede;    
+}
+
+.header-primary-container {
+    border-top: solid 1px #fcfcfc;
+    padding-top: 5px;
+}
+
+div#minicart {
+    width: 100%;
+    text-align: center;
+    border: solid 1px #dedede;
+}
+
+button:focus {
+    outline: 0px dotted !important;
+    /*outline: 5px auto -webkit-focus-ring-color;*/
+}
+
+.fotorama__stage{
+    min-width: 652px;
+}
+
+.pager .pages{
+    float: right;
+    margin-top: 5px;
+}

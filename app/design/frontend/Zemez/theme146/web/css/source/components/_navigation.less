@@ -1,0 +1,173 @@
+//
+//  Navigation
+//  _____________________________________________
+
+.lib-main-navigation-desktop() {
+    .navigation {
+        > ul {
+            position: static;
+            margin-left: -@navigation-desktop-level0-item__offset;
+        }
+
+        .level0 {
+            text-align: left;
+            > .level-top {
+                .lib-css(font-size, @navigation-desktop-level0-item__font-size);
+                .lib-css(font-weight, @navigation-desktop-level0-item__font-weight);
+
+                &:before {
+                    display: block;
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    bottom: 5px;
+                    border-top: 4px solid @color-secondary;
+                    z-index: -1;
+                    transform: scaleX(0);
+                    transition: 0.2s transform ease;
+                }
+
+                &.ui-state-active {
+                    .lib-css(background, @navigation-desktop-level0-item__hover__background);
+                    .lib-css(border, @navigation-desktop-level0-item__hover__border);
+                    .lib-css(color, @navigation-desktop-level0-item__hover__color);
+                }
+
+                &:hover, &.ui-state-focus, &.ui-state-active {
+                    &:before {
+                        transform: scaleX(1);
+                    }
+                }
+            }
+
+            &.active > .level-top:before {
+                transform: scaleX(1);
+            }
+
+            &.parent {
+                > .level-top {
+                    padding: @navigation-desktop-level0-item__padding;
+
+                    > .ui-menu-icon {
+                        display: none;
+                    }
+                }
+            }
+
+            > .submenu:not(.megamenu-wrapper) {
+                margin-top: 15px !important;
+            }
+
+            .submenu {
+                padding-top: 10px;
+                padding-bottom: 10px;
+
+                .submenu {
+                    top: -10px !important;
+                }
+
+                a {
+                    &.ui-state-active {
+                        .lib-css(background, @submenu-desktop-item__hover__background);
+                        .lib-css(border, @submenu-desktop-item__hover__border);
+                        .lib-css(color, @submenu-desktop-item__hover__color);
+                    }
+                }
+
+                li {
+                    &.parent {
+                        > a {
+                            > .ui-menu-icon {
+                                right: 8px;
+                                line-height: 0;
+                                transition: 0.3s right ease;
+
+                                &:after {
+                                    .font-icon__pseudo(@themeicon-right154);
+                                    font-size: 12px;
+                                    line-height: 20px;
+                                }
+                            }
+
+                            &.ui-state-focus, &.ui-state-active {
+                                > .ui-menu-icon {
+                                    right: 3px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    nav.navigation {
+        > ul {
+            padding-top: 6px;
+            padding-bottom: 15px;
+        }
+        ul {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}
+
+& when (@media-target = 'desktop') {
+    .sm-header-nav-wrap {
+        position: relative;
+        .make-flex();
+        align-items: center;
+        justify-content: space-between;
+        box-sizing: border-box;
+        &.isStuck {
+            background-color: @color-white;
+        }
+
+        @media (max-width: (@screen__xl - 1)) {
+            flex-wrap: wrap;
+        }
+    }
+
+    nav.navigation {
+        position: static;
+        width: auto;
+    }
+
+    // RTL
+    html.rtl {
+
+    }
+}
+
+& when (@media-target = 'mobile') {
+    @media (max-width: (@screen__m - 1)) {
+        // Mobile navigation
+        .navigation {
+            .level0:first-child {
+                border-top: none;
+            }
+
+            .submenu:not(:first-child) {
+                padding-top: 5px;
+                padding-bottom: 5px;
+
+                > li > a {
+                    padding-left: 30px;
+                }
+            }
+        }
+
+        // RTL
+        html.rtl {
+            .navigation {
+                .submenu:not(:first-child) {
+                    > li > a {
+                        padding-left: 0;
+                        padding-right: 30px;
+                    }
+                }
+            }
+        }
+    }
+}

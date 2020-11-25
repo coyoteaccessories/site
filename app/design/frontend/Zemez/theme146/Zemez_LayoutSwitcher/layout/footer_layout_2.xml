@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="footer-container" htmlClass="page-footer layout-2" />
+
+        <referenceContainer name="footer.grid-container" htmlClass="container" />
+        <referenceContainer name="footer.google-map" remove="true" />
+
+        <referenceBlock name="footer_col_1" remove="true" />
+        <referenceBlock name="footer_col_2" remove="true" />
+
+        <referenceContainer name="footer.grid-col1" htmlClass="col-m-3 col-l-2">
+            <container name="footer.grid-col1.wrapper" htmlClass="footer-col" htmlTag="div">
+                <block class="Magento\Cms\Block\Block" name="footer_l2_col_1_title" before="-">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">footer_l2_col_1_title</argument>
+                    </arguments>
+                </block>
+                <container name="footer_col_content_1" htmlClass="footer-col-content" htmlTag="div">
+                    <block class="Magento\Cms\Block\Block" name="footer_l2_col_1" before="-">
+                        <arguments>
+                            <argument name="block_id" xsi:type="string">footer_l2_col_1</argument>
+                        </arguments>
+                    </block>
+                </container>
+            </container>
+        </referenceContainer>
+
+        <referenceContainer name="footer.grid-col2" htmlClass="col-m-3 col-l-2">
+            <block class="Magento\Cms\Block\Block" name="footer_l2_col_2" before="-">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">footer_l2_col_2</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+
+        <referenceContainer name="footer.grid-row">
+            <container name="footer.grid-col3" htmlClass="col-m-3 col-l-2" htmlTag="div">
+                <block class="Magento\Cms\Block\Block" name="footer_l2_col_3">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">footer_l2_col_3</argument>
+                    </arguments>
+                </block>
+            </container>
+
+            <container name="footer.grid-col4" htmlClass="col-m-3" htmlTag="div">
+                <block class="Magento\Cms\Block\Block" name="footer_l2_col_4">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">footer_l2_col_4</argument>
+                    </arguments>
+                </block>
+            </container>
+
+            <container name="footer.grid-col5" htmlClass="col-l-3" htmlTag="div" />
+        </referenceContainer>
+
+        <referenceBlock name="footer_links" remove="false" />
+        <move element="footer_links" destination="footer_col_content_1" after="-" />
+        <move element="theme_options.social_links.footer" destination="footer.grid-col5" after="-"/>
+    </body>
+</page>

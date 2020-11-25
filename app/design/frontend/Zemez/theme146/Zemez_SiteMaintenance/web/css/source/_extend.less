@@ -1,0 +1,111 @@
+//
+//  Site Maintenance
+//  ---------------------------------------------
+
+& when (@media-target = 'mobile') {
+    .sm-wrapper {
+        position: relative;
+        z-index: 0;
+        &:before {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: url("../images/sm_bg.png");
+            background-position: center bottom;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .sm-main {
+            max-width: 905px;
+            padding: 5.2vw 5.2vw 0;
+            text-align: left;
+            margin: 0;
+
+            // Content
+            #sm-content-block {
+                margin-bottom: 2vw;
+
+                .sm-logo {
+                    margin-bottom: 20px;
+                }
+
+                .sm-title {
+                    color: @color-primary;
+                    font-size: ~'calc(2vw + 18px)';
+                    line-height: 1.26;
+                    font-weight: 700;
+                }
+
+                .sm-description {
+                    color: @color-dark;
+                    font-size: ~'calc(0.5vw + 12px)';
+                    line-height: 1.55;
+                }
+            }
+
+            // Timer
+            #sm-timer-block {
+                margin-bottom: 2vw;
+
+                .sm-timer-text {
+                    color: @color-dark;
+                    font-size: ~'calc(0.5vw + 12px)';
+                    line-height: 1.55;
+                }
+                .sm-timer-wrapper {
+                    color: @color-primary;
+                    font-size: ~'calc(4vw + 4px)';
+                    line-height: 1.075;
+                    font-weight: 700;
+                }
+            }
+
+            // Subscribe
+            #sm-subscription-block {
+                .sm-title {
+                    color: @color-dark;
+                    font-size: ~'calc(0.5vw + 12px)';
+                    line-height: 1.55;
+                }
+                .sm-text {
+                    color: @color-dark;
+                    margin-bottom: 10px;
+                }
+
+                .sm-content {
+                    .sm-subscription {
+                        position: relative;
+
+                        #newsletter-error {
+                            position: absolute;
+                            bottom: -25px;
+                            margin: 0;
+                            width: 100%;
+                        }
+                    }
+                    #newsletter {
+                        width: 200px;
+                        display: inline-block;
+                        margin-right: 4px;
+
+                        @media (max-width: (@screen__l - 1)) {
+                            padding: 6px;
+                        }
+                        @media (max-width: (@screen__xs - 1)) {
+                            width: 160px;
+                        }
+                    }
+                    .sm-button {
+                        .lib-button;
+                        .lib-button-primary;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,88 @@
+/* 
+ * 	Featured Product by Zemez
+ */
+
+// Main Styles
+
+& when (@media-target = 'mobile') {
+    .products-slider {
+        .product-img, .product-item-details {
+            padding-bottom: 15px;
+        }
+
+        .product-item-photo {
+            padding: 3% 10% 12%;
+            border: 4px solid @color-lightest;
+            background-color: @color-white;
+        }
+
+        .owl-nav {
+            text-align: center;
+        }
+
+        .timer-wrapper {
+            margin-bottom: 0;
+
+            > div {
+                border: 2px solid @color-lightest;
+            }
+        }
+
+        @media (min-width: @screen__xs) {
+            .product-img, .product-item-details {
+                padding-bottom: 20px;
+            }
+
+            .list.products-list .product-item-info {
+                align-items: center;
+
+                .product-img {
+                    flex-basis: 40%;
+                    max-width: 40%;
+                }
+
+                .product-item-details {
+                    flex-basis: 60%;
+                    max-width: 60%;
+                    padding-left: 11%;
+                }
+            }
+        }
+
+        @media (min-width: @screen__s) {
+            .product-img, .product-item-details {
+                padding-bottom: 26px;
+            }
+
+            .timer-wrapper > div {
+                padding: 11px 12px 14px;
+            }
+        }
+    }
+}
+
+& when (@media-target = 'desktop') {
+    .products-slider {
+        @media (min-width: @screen__l) {
+            .list.products-list {
+                .product-item-description {
+                    margin-top: 20px;
+                }
+
+                .price-box {
+                    margin-top: 27px;
+                }
+            }
+        }
+
+        @media (min-width: @screen__xl) {
+            .product-img, .product-item-details {
+                padding-bottom: 36px;
+            }
+
+            .timer-wrapper > div {
+                border-width: 4px;
+            }
+        }
+    }
+}

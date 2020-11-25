@@ -1,0 +1,315 @@
+//
+//  Form styles
+//  _____________________________________________
+
+& when (@media-common = true) {
+    //Form layout
+    .field {
+        position: relative;
+        padding: 8px 0;
+
+        &.additional,
+        &.choice {
+            margin-bottom: 0;
+        }
+
+        &.note {
+            margin-bottom: 16px;
+        }
+
+        &.custom-label {
+            padding: 8px 0;
+            transition: .3s ease;
+
+            .label {
+                position: absolute;
+                z-index: 2;
+                top: 19px;
+                left: 20px;
+                float: none;
+                padding: 0;
+                text-align: left;
+                pointer-events: none;
+                transition: .3s ease;
+                transform-origin: 0 0;
+                width: auto;
+            }
+
+            &.focus .label {
+                top: 6px;
+                transform: scale(0.7);
+                opacity: 0;
+            }
+        }
+
+        .checkbox {
+            margin: .75rem .5rem 0 0;
+        }
+
+        .field-tooltip-action {
+            outline: none !important;
+        }
+
+        &.required {
+            div.mage-error {
+                position: absolute;
+                top: @form-element-input__height;
+                left: 0;
+                right: 0;
+                padding-left: 0;
+                font-size: 12px;
+                line-height: 1;
+            }
+
+            textarea + div.mage-error {
+                top: auto;
+                bottom: 0;
+            }
+
+            .control {
+                position: relative;
+
+                .field-tooltip.toggle {
+                    top: -25px;
+                }
+            }
+
+            input.input-text {
+                transition: margin-bottom .3s ease;
+
+                &#password.mage-error {
+                    margin-bottom: 24px;
+                }
+            }
+
+            input.input-text, textarea, select {
+                transition: margin-bottom .3s ease;
+
+                &.mage-error {
+                    margin-bottom: 18px;
+                }
+            }
+        }
+    }
+
+    .fieldset {
+        .actions-toolbar {
+            padding-top: 16px;
+        }
+    }
+
+    .field.required > .label:not(.admin__field-label):after,
+    .field._required > .label:not(.admin__field-label):after,
+    .fieldset > .field.required > .label:not(.admin__field-label):after,
+    .fieldset > .fields > .field.required > .label:not(.admin__field-label):after {
+        color: @color-denied;
+        content: "*";
+        font-size: 12px;
+        margin: 0 0 0 5px;
+    }
+
+    //Typography
+    .legend,
+    legend {
+        + br {
+            display: none;
+        }
+    }
+
+    .input-text,
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="number"],
+    select,
+    textarea {
+        transition: 0.2s all ease;
+    }
+
+    .mobile,
+    .tablet {
+        select {
+            width: auto;
+        }
+    }
+
+    input[type="number"] {
+        padding-right: 5px;
+    }
+
+    .select-styling() {
+        .lib-css(appearance, none, 1);
+        appearance: none;
+        text-indent: .01em;
+        text-overflow: '';
+
+        &::-ms-expand {
+            display: none;
+        }
+    }
+
+    select {
+        .select-styling();
+    }
+
+    select[multiple="multiple"] {
+        padding: 0;
+        min-height: 0;
+    }
+
+    textarea {
+        max-width: 100%;
+        max-height: 500px;
+    }
+
+    p.required {
+        color: @color-denied;
+    }
+
+    //Inline form
+    .form-inline {
+        .make-flex();
+
+        .control {
+            input,
+            select,
+            textarea {
+                width: auto;
+            }
+        }
+    }
+
+    // Checkbox
+    .radio,
+    input[type="checkbox"],
+    input[type="radio"] {
+        display: inline-block;
+        width: auto;
+    }
+
+    .field.choice {
+        position: relative;
+
+        > input[type=checkbox],
+        > input[type=radio] {
+            position: absolute;
+            z-index: -1;
+            opacity: 0;
+        }
+
+        > input[type=checkbox],
+        > input[type=radio] {
+            + .label {
+                &:before {
+                    display: inline-block;
+                    font-size: 16px;
+                    line-height: 1rem;
+                    width: 18px;
+                    height: 18px;
+                    font-style: normal;
+                    vertical-align: sub;
+                    color: @color-primary;
+                    text-align: center;
+                    padding-right: 3px;
+                }
+
+                span {
+                    display: inline-block;
+                }
+            }
+        }
+
+        > input[type=checkbox] + .label {
+            &:before {
+                .font-icon__pseudo(@themeicon-check_box_outline_blank);
+            }
+        }
+
+        > input[type=checkbox]:checked + .label:before {
+            .font-icon__pseudo(@themeicon-check_box);
+        }
+
+        > input[type=checkbox]:disabled:checked + .label:before {
+            .font-icon__pseudo(@themeicon-check_box);
+            pointer-events: none;
+            opacity: .6;
+        }
+
+        > input[type=radio] + .label:before {
+            .font-icon__pseudo(@themeicon-radio_button_unchecked);
+        }
+
+        > input[type=radio]:checked + .label:before {
+            .font-icon__pseudo(@themeicon-radio_button_checked);
+        }
+
+        > input[type=checkbox]:disabled:checked + .label:before {
+            .font-icon__pseudo(@themeicon-radio_button_checked);
+            pointer-events: none;
+            opacity: .6;
+        }
+
+        > input[type=checkbox],
+        > input[type=radio] {
+            &:disabled + .label:before {
+                pointer-events: none;
+                opacity: .6;
+            }
+        }
+    }
+
+    //
+    //  Messages styles
+    //  ---------------------------------------------
+
+    .mage-error:not(input):not(textarea),
+    .mage-error[generated]:not(input):not(textarea) {
+        font-size: 1rem;
+        line-height: 1rem;
+        font-style: italic;
+        color: red;
+    }
+
+    // RTL
+    html.rtl {
+        .field {
+            &.custom-label {
+                .label {
+                    left: auto;
+                    right: 20px;
+                }
+            }
+
+            &.required {
+                div.mage-error {
+                    padding-right: 0;
+                }
+            }
+        }
+
+        .field.required > .label:not(.admin__field-label):after,
+        .field._required > .label:not(.admin__field-label):after,
+        .fieldset > .field.required > .label:not(.admin__field-label):after,
+        .fieldset > .fields > .field.required > .label:not(.admin__field-label):after {
+            margin-right: 5px;
+            margin-left: 0;
+        }
+
+        input[type="number"] {
+            padding-right: 0;
+            padding-left: 5px;
+        }
+
+        .field.choice {
+            > input[type=checkbox],
+            > input[type=radio] {
+                + .label {
+                    &:before {
+                        padding-right: 0;
+                        padding-left: 3px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="inchooextensions" translate="label" sortOrder="10">
+            <label>Inchoo Extensions</label>
+        </tab>
+        <section id="custom_search" translate="label" sortOrder="100" type="text" showInDefault="1" showInWebsite="1" showInStore="1">            
+            <label>Custom Search</label>
+            <tab>inchooextensions</tab>     
+            <resource>Inchoo_Search::search_config</resource>       
+            <group id="general" translate="label" sortOrder="1" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Settings</label>
+                <comment>General Settings</comment>                
+                <field id="linked_part" translate="label" sortOrder="10" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Include Linked Part Module</label>   
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>                                               
+                </field>                                     
+                <field id="no_result_text" translate="label" sortOrder="20" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>No Result Text</label>                            
+                </field>       
+                <field id="image_path" translate="label" sortOrder="30" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Image Path on orotekusa App guide</label>                            
+                </field>       
+            </group>         
+        </section>
+    </system>
+</config>

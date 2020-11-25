@@ -1,0 +1,266 @@
+//
+//  Toolbar
+//  ---------------------------------------------
+
+& when (@media-target = 'mobile') {
+    .toolbar {
+        .make-flex();
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+
+        > * {
+            margin-bottom: 15px;
+        }
+
+        select {
+            height: 30px;
+            border: none;
+            background-color: transparent;
+            border-bottom: 1px solid;
+        }
+
+        .field {
+            .make-flex();
+            align-items: center;
+            padding: 0;
+            box-sizing: border-box;
+            .label {
+                margin-right: 10px;
+                color: @color-dark;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 1;
+            }
+
+            @media (max-width: (@screen__xs - 1)) {
+                flex-wrap: wrap;
+                .label {
+                    width: 100%;
+                    margin-right: 0;
+                    margin-bottom: 3px;
+                }
+
+                .control {
+                    flex-grow: 1;
+                    select {
+                        width: 100%;
+                    }
+                }
+            }
+
+            .control {
+                @media (min-width: @screen__m) {
+                    select {
+                        min-width: 60px;
+                    }
+                }
+            }
+        }
+
+        .pages {
+            display: none;
+        }
+
+        @media (min-width: @screen__m) and (max-width: (@screen__l - 1)) {
+            .toolbar-amount {
+                .order(1);
+                flex-basis: 100%;
+                text-align: left;
+            }
+        }
+
+        @media (max-width: (@screen__m - 1)) {
+            .toolbar-sorter {
+                .order(2);
+                flex-basis: 65%;
+                max-width: 65%;
+                margin-right: 0;
+            }
+            .limiter {
+                .order(3);
+                justify-content: flex-end;
+                flex-basis: 35%;
+                max-width: 35%;
+                margin-right: 0;
+            }
+        }
+
+        @media (max-width: (@screen__s - 1)) {
+            .modes {
+                flex-basis: 40%;
+                justify-content: flex-end;
+            }
+        }
+
+        @media (max-width: (@screen__xs - 1)) {
+            .toolbar-sorter {
+                flex-basis: 70%;
+                max-width: 70%;
+                padding-right: 20px;
+                .control {
+                    max-width: 80%;
+                }
+            }
+
+            .limiter {
+                flex-basis: 30%;
+                max-width: 30%;
+            }
+        }
+    }
+
+    //Sorter
+    .toolbar-sorter {
+        .sorter-action {
+            margin-left: 16px;
+            .font-icon(@themeicon-sort47);
+            font-size: 14px;
+            line-height: 1;
+
+            span {
+                display: none;
+            }
+
+            &.sort-desc {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    //Amount
+    .toolbar-amount {
+        text-align: center;
+        margin-top: 0;
+
+        @media (max-width: (@screen__s - 1)) {
+            display: none;
+        }
+    }
+
+    //Limiter
+    .field.limiter {
+        .limiter-text {
+            display: none;
+        }
+    }
+
+    // Modes
+    .modes {
+        .make-flex();
+        margin-left: 20px;
+
+        .modes-label {
+            display: none;
+        }
+
+        .mode-grid {
+            .font-icon(@themeicon-button5);
+        }
+
+        .mode-list {
+            .font-icon(@themeicon-list65);
+        }
+
+        .modes-mode {
+            display: block;
+            margin-left: 12px;
+            color: @color-light;
+
+            &:before {
+                display: block;
+                font-size: 22px;
+                line-height: 1;
+            }
+
+            &.active {
+                color: @color-dark;
+            }
+
+            span {
+                display: none;
+            }
+        }
+
+        a.modes-mode:hover {
+            color: @color-primary;
+        }
+    }
+
+    .toolbar-bottom {
+        .pages {
+            display: block;
+        }
+        .toolbar-amount, .toolbar-sorter, .limiter, .modes {
+            display: none;
+        }
+
+        .toolbar {
+            justify-content: center;
+            margin-top: 40px;
+            margin-bottom: 0;
+            @media (max-width: (@screen__m - 1)) {
+                justify-content: center;
+                padding-top: 24px;
+                border-top: 1px solid @border-color__base;
+            }
+        }
+    }
+
+    // RTL
+    html.rtl {
+        .toolbar {
+            .field {
+                .label {
+                    margin-right: 0;
+                    margin-left: 10px;
+                }
+                @media (max-width: (@screen__xs - 1)) {
+                    .label {
+                        margin-left: 0;
+                    }
+                }
+            }
+
+            @media (max-width: (@screen__m - 1)) {
+                .toolbar-sorter {
+                    margin-left: 0;
+                }
+                .limiter {
+                    margin-left: 0;
+                }
+            }
+
+            @media (max-width: (@screen__xs - 1)) {
+                .toolbar-sorter {
+                    padding-right: 0;
+                    padding-left: 20px;
+                }
+            }
+        }
+
+        .toolbar-sorter {
+            .sorter-action {
+                margin-left: 0;
+                margin-right: 16px;
+            }
+        }
+        .modes {
+            margin-left: 0;
+            margin-right: 20px;
+            .modes-mode {
+                margin-left: 0;
+                margin-right: 12px;
+            }
+        }
+    }
+}
+
+& when (@media-target = 'desktop') {
+    .toolbar {
+        .toolbar-amount {
+            flex-grow: 1;
+        }
+    }
+}

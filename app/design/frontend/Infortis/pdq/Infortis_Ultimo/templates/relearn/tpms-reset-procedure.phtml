@@ -1,0 +1,31 @@
+<?php
+$params = $block->_getRequests();
+$html = $block->getRelearnHtml();
+if ($html) {
+    $year = $params['Year'];
+    $make = isset($params['Make']) ? $params['Make'] : '';
+    $model = isset($params['Model']) ? $params['Model'] : '';
+    $subModel = isset($params['SubModel']) ? $params['SubModel'] : '';
+}
+?>
+<div class="contain-main reset-procedure">
+    <div class="page-title"><h1>TPMS Reset Procedure</h1></div>
+    <dl class="titleMedium tpms-procedure" id="lblApplication">
+        <dt>Year:</dt>
+        <dd><?php echo (int) $year ?></dd>
+
+        <dt>Make:</dt>
+        <dd><?php echo htmlspecialchars($make) ?></dd>
+
+        <dt>Model:</dt>
+        <dd><?php echo htmlspecialchars($model) ?></dd>
+
+        <dt>Submodel:</dt>
+        <dd><?php echo htmlspecialchars($subModel) ?></dd>
+    </dl>
+    <?php if ($html): ?>
+        <?php echo $html ?>
+    <?php else: ?>
+        <div class="reset-procedure-noData">No data found</div>
+    <?php endif ?>
+</div>

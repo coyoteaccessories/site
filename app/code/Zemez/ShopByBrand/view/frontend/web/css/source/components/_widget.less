@@ -1,0 +1,64 @@
+
+& when (@media-target = 'mobile') {
+    // Widger Brands
+    .block.brands {
+        .block-content {
+            .brandlist {
+                text-align: center;
+                display: flex;
+                flex-wrap: wrap;
+                margin-left: -15px;
+                margin-right: -15px;
+                width: auto;
+
+                .brand {
+                    padding: 0 15px;
+                    box-sizing: border-box;
+                }
+
+                .brand-logo {
+                    display: inline-block;
+                    margin-bottom: 15px;
+                }
+
+                .brand-name {
+                    margin-bottom: 0;
+                }
+
+                @media screen and (max-width: (@screen__m - 1)) {
+                    .brand {
+                        flex-basis: 50% !important;
+                    }
+                }
+            }
+        }
+
+        .owl-carousel {
+            .owl-nav {
+                button {
+                    position: absolute;
+                    top: 50%;
+                    margin-top: -23px;
+                    box-shadow: none;
+                    &:before {
+                        font-family: @icon-font;
+                        font-size: 46px;
+                        line-height: 1;
+                    }
+                }
+                .owl-prev {
+                    left: 0;
+                    &:before {
+                        content: @icon-prev;
+                    }
+                }
+                .owl-next {
+                    right: 0;
+                    &:before {
+                        content: @icon-next;
+                    }
+                }
+            }
+        }
+    }
+}

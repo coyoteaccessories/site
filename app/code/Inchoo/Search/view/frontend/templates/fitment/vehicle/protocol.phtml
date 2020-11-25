@@ -1,0 +1,39 @@
+<?php
+$protocolDates = $block->getProtocolDates();
+?>
+<?php if (!empty($protocolDates)): ?>
+    <div class="row programmableSection">
+        <h2>Programmable with:</h2>
+        <div class="rightTxt oe-sensors-container">
+            <table class="data-table" id="protocol-dates">
+                <thead>
+                    <tr class="headings">
+                        <th><?php echo __('PDQ') ?></th>
+                        <th><?php echo __('ATEQ') ?></th>
+                        <th><?php echo __('Bartec') ?></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <?php $currentStoreDate = $this->getCurrentStoreDate(); ?>
+                        <?php foreach ($protocolDates as $label => $_protocolDates): ?>
+                            <?php foreach ($_protocolDates as $protocolDate): ?>
+                                <?php $formattedDate = $this->getFormatDate($protocolDate); ?>
+                                <?php if (strtotime($formattedDate) > strtotime($currentStoreDate)): ?>
+                                    <td class="data"><?php echo $formattedDate; ?></td>
+                                <?php else: ?>
+                                    <td class="data success-msg"></td>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        <?php endforeach; ?>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script type="text/javascript">
+        decorateTable('protocol-dates');
+    </script>
+    <?php
+ endif;
+
