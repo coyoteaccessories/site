@@ -1,0 +1,79 @@
+// /**
+//  * Copyright © Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+.lib-data-tabs__base() {
+    > .item.title {
+        > .switch {
+            box-sizing: border-box;
+        }
+    }
+
+    > div.item.content {
+        border-top: 1px solid @border-color__base;
+        visibility: hidden;
+
+        &[aria-hidden="false"] {
+            visibility: visible;
+        }
+    }
+}
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+    .product.data.items {
+        .lib-data-accordion();
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .product.data.items {
+        .lib-data-tabs();
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .product.data.items {
+        .lib-data-accordion();
+
+        .data.item {
+            display: block;
+        }
+
+        > .item.title {
+            position: relative;
+
+            &:before {
+                position: absolute;
+                top: 0;
+                right: 0;
+                line-height: @accordion-control__line-height;
+                padding: @accordion-control__padding-top 0 @accordion-control__padding-bottom;
+                cursor: pointer;
+                color: @color-dark;
+            }
+
+            .font-icon(@themeicon-arrows-1_minimal-up);
+
+            &[aria-expanded="false"]:before {
+                content: @themeicon-arrows-1_minimal-down;
+            }
+
+            &.active > .switch {
+                color: @accordion-control__active__color;
+            }
+        }
+    }
+}

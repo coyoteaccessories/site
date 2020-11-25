@@ -1,0 +1,29 @@
+<?php
+$filters = $block->getFitmentFilters();
+$categories = $block->getCategories();
+?>
+
+<div class="fitment-categories-container container">    
+    <?php if (count($categories)): ?>    
+        <?php foreach ($categories as $category): ?>
+            <?php if (strtolower($category['label']) !== 'label2'): //see category attribute under Category Menu tab ?>
+                <?php
+                $filters['params']['cat'] = $category['id'];
+                $queryParams = $filters['params'];
+                ?>
+                <div class="fitment-categories-content">
+                    <div class="fitment-category-image category_id_<?php echo $category['id']; ?>">
+                        <a href="<?php echo $block->getUrl('fitment/index/products', ['_current' => true, '_use_rewrite' => true, '_query' => $queryParams]); ?>">                        
+                            <img  width="200" src="<?php echo $category['image'] ? $category['image'] : $block->getViewFileUrl('images/logo.png'); ?>" alt="<?php echo $category['name']; ?>" />                            
+                        </a>
+                    </div>
+                    <div class="fitment-category-name">                    
+                        <h3><a href="<?php echo $block->getUrl('fitment/index/products', ['_current' => true, '_use_rewrite' => true, '_query' => $queryParams]); ?>"><?php echo $category['name']; ?> <span>(<?php echo count($category['products']); ?>)</span> </a></h3>
+                    </div> 		
+                </div>
+            <?php endif; ?>
+        <?php endforeach; ?>    
+    <?php else: ?>
+        <div class="fitment-categories-content mx-auto my-5 font-weight-bold">There are no products matching the selection</div>
+    <?php endif; ?>
+</div>

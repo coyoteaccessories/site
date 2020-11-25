@@ -1,0 +1,29 @@
+//
+//  Base theme styles
+//  ---------------------------------------------
+
+& when (@media-target = 'mobile') {
+    a {
+        transition: .3s ease;
+    }
+
+    em {
+        color: @color-primary;
+    }
+
+    pre {
+        white-space: normal;
+    }
+
+    *,
+    ul,
+    ul > li,
+    ol > li {
+        margin: 0;
+    }
+
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+}

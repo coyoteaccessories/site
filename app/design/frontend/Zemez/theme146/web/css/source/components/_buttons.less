@@ -1,0 +1,105 @@
+//
+//  Buttons
+//  _____________________________________________
+
+.lib-button() {
+    .lib-css(border-radius, @button__border-radius);
+}
+
+.lib-button-primary() {
+    position: relative;
+    transform: translate(-5px, -5px);
+
+    &:before {
+        display: block;
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        border: @button-primary__border;
+        transform: translate(5px, 5px);
+        transition: 0.3s transform ease;
+    }
+
+    &:hover {
+        &, &:before {
+            transform: none;
+        }
+    }
+}
+
+& when (@media-common = true) {
+    button,
+    .action {
+        display: inline-block;
+        height: auto;
+        text-align: center;
+        transition: 0.3s all ease;
+        
+        &.no-display {
+            display: none;
+        }
+    }
+
+    .action.default {
+        .lib-button();
+    }
+
+    .action.secondary,.action.secondary-2  {
+        border: 2px solid @color-secondary;
+        cursor: pointer;
+        font-weight: @button__font-weight;
+        padding: @button__padding;
+        font-size: @font-size__base;
+        line-height: @button__line-height;
+        box-sizing: border-box;
+        vertical-align: middle;
+    }
+
+    .action.secondary {
+        background: @color-secondary;
+        color: @color-white;
+
+        &:hover {
+            background: none;
+            color: @color-secondary;
+        }
+    }
+
+    .action.secondary-2 {
+        background: none;
+        color: @color-secondary;
+
+        &:hover {
+            background: @color-secondary;
+            color: @color-white;
+        }
+    }
+
+    .action.icon {
+        position: relative;
+        padding-right: 50px;
+        &:after {
+            .font-icon__pseudo(@themeicon-right154);
+            position: absolute;
+            top: -2px;
+            right: 20px;
+            line-height: 56px;
+        }
+    }
+
+    @media (max-width: (@screen__l - 1)) {
+        .action.default, .action.primary, .action.secondary, .action.secondary-2 {
+            padding: 11px 14px;
+            &.icon {
+                padding-right: 32px;
+                &:after {
+                    right: 12px;
+                    line-height: 40px;
+                }
+            }
+        }
+    }
+}

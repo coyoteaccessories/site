@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ *
+ * Copyright © 2019 Zemez. All rights reserved.
+ * See COPYING.txt for license details.
+ *
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="default">
+        <job name="smartlabel_apply_all"
+             instance="Zemez\ProductLabels\Cron\DailySmartLabelUpdate"
+             method="execute">
+            <schedule>0 1 * * *</schedule>
+        </job>
+    </group>
+</config>

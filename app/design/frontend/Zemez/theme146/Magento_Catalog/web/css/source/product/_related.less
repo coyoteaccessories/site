@@ -1,0 +1,26 @@
+//
+//  Related product
+//  ---------------------------------------------
+
+& when (@media-target = 'mobile') {
+    .block.related {
+        overflow: hidden;
+        margin-top: 4rem;
+
+        .block-actions .select {
+            padding: 0;
+            line-height: 1;
+            background: transparent;
+            color: @color-primary;
+            &:hover {
+                color: @color-light;
+            }
+        }
+    }
+
+    .products-grid.products-related {
+        .owl-carousel .owl-nav {
+            top: -15px;
+        }
+    }
+}

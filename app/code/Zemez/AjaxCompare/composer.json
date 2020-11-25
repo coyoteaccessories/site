@@ -1,0 +1,17 @@
+{
+  "name" : "zemez/ajax-compare",
+  "autoload": {
+    "psr-4": {"Zemez\\AjaxCompare\\":""},
+    "files": [ "registration.php" ]
+  },
+  "description": "Ajax Compare",
+  "require": {
+    "magento/module-catalog": "*"
+  },
+  "type": "magento2-module",
+  "version": "2.1.5",
+    "extra": {
+        "isStandalone": "false",
+        "magentoVersion": "v2.3.2"
+    }
+}

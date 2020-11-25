@@ -1,0 +1,311 @@
+//
+//  Theme Options
+//  ---------------------------------------------
+
+& when (@media-target = 'mobile') {
+    .logo-text {
+        font-size: 45px;
+        font-weight: 700;
+        line-height: 1;
+        color: @color-default;
+        @media (max-width: (@screen__s - 1)) {
+            font-size: 36px;
+        }
+    }
+
+    // Switch image on hover
+    .tm-switch-image-container {
+        position: relative;
+        overflow: hidden;
+
+        .replaced {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+
+    .product-item-photo-gallery {
+        .fotorama__stage__frame {
+            left: 100%;
+
+            &.fotorama__active {
+                left: 0;
+            }
+        }
+    }
+
+    // Social links
+    ul.social-links {
+        a {
+            display: inline-block;
+            color: @color-white;
+            background-color: @color-default;
+            min-width: 22px;
+            border-radius: 50%;
+            text-align: center;
+
+            &:hover {
+                color: @color-default;
+                background-color: @color-white;
+            }
+        }
+
+        i {
+            display: block;
+        }
+    }
+
+    .social-links-title {
+        display: none;
+    }
+
+    .page-wrapper {
+        ul.social-links {
+            .make-flex();
+            flex-wrap: wrap;
+            float: none;
+            clear: none;
+            width: auto;
+            margin-left: -18px;
+
+            li {
+                margin-left: 18px;
+            }
+        }
+
+        .page-header ul.social-links {
+            width: auto;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    }
+
+    // Preloader
+    .centered-block {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .loading-mask .loader {
+        img, p {
+            display: none;
+        }
+    }
+
+    .css3-loader,
+    body .loading-mask .loader {
+        position: absolute;
+        z-index: 9999;
+        left: 0;
+        top: 50%;
+        margin-top: -25px;
+        width: 100%;
+        height: 49px;
+        text-align: center;
+
+        &:before {
+            content: '';
+            display: block;
+            width: 49px;
+            height: 49px;
+            margin: 0 auto;
+            border: 3px solid rgb(0, 0, 0);
+            border-radius: 50%;
+            border-left-color: transparent;
+            border-right-color: transparent;
+            animation: cssload-spin 575ms infinite linear;
+            -o-animation: cssload-spin 575ms infinite linear;
+            -ms-animation: cssload-spin 575ms infinite linear;
+            -webkit-animation: cssload-spin 575ms infinite linear;
+            -moz-animation: cssload-spin 575ms infinite linear;
+        }
+    }
+
+    @keyframes cssload-spin {
+        100% {
+            -o-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+    }
+
+    @-o-keyframes cssload-spin {
+        100% {
+            -o-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+    }
+
+    @-ms-keyframes cssload-spin {
+        100% {
+            -ms-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+    }
+
+    @-webkit-keyframes cssload-spin {
+        100% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+    }
+
+    @-moz-keyframes cssload-spin {
+        100% {
+            -moz-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+    }
+
+    .magnifier-preview {
+        z-index: 3;
+    }
+}
+
+& when (@media-target = 'desktop') {
+    .products-list .product-item-photo.product-item-photo-gallery {
+        width: 30%;
+    }
+
+    .product-image-container.gallery-placeholder-thumb {
+        display: block;
+    }
+
+    .gallery-placeholder-thumb .fotorama {
+        width: 100%;
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m){
+    & when (@media-target = 'mobile') {
+        .tm-logo-container {
+            float: left;
+        }
+    }
+}
+
+//
+//  To Top Button
+//  ---------------------------------------------
+
+& when (@media-target = 'mobile') {
+    .scrollToTop {
+        position: fixed;
+        z-index: 999;
+        right: 0;
+        bottom: 0;
+        height: 40px;
+        width: 40px;
+        background: @color-primary;
+        border: 2px solid @color-primary;
+        color: @color-white;
+        display: none;
+        cursor: pointer;
+        text-indent: 100vw;
+        white-space: nowrap;
+        transition: .3s ease;
+        box-shadow: 0 0 4px 1px rgba(0, 0, 0, .1);
+
+        &:before {
+            .font-icon__pseudo(@themeicon-up107);
+            font-size: 18px;
+            line-height: 40px;
+            text-indent: 0;
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -20px;
+            margin-left: -20px;
+            text-align: center;
+        }
+
+        &:hover {
+            background: none;
+            color: @color-primary;
+        }
+    }
+
+    // RTL
+    html.rtl {
+        .scrollToTop {
+            right: auto;
+            left: 0;
+        }
+    }
+}
+
+& when (@media-target = 'desktop') {
+    .scrollToTop {
+        bottom: 4vh;
+        right: 2vw;
+        transform: translate(-5px, -5px);
+
+        &, &:before {
+            width: 46px;
+            height: 46px;
+        }
+
+        &:before {
+            margin-top: -23px;
+            margin-left: -23px;
+            line-height: 46px;
+        }
+    }
+
+    // RTL
+    html.rtl {
+        .scrollToTop {
+            right: auto;
+            left: 3vw;
+        }
+    }
+}
+
+& when (@media-target = 'mobile') {
+    @media (max-width: (@screen__m - 1)) {
+        .sm-header-nav-wrap {
+            &.isStuck {
+                position: static !important;
+            }
+        }
+
+        .pseudoStickyBlock {
+            display: none;
+        }
+    }
+}
+
+
+& when (@media-target = 'desktop') {
+    .stuckElement {
+        &:after {
+            display: block;
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 100%;
+            border-bottom: 3px solid @color-secondary;
+            opacity: 0;
+            transition: 0.3s opacity ease;
+        }
+
+        &.isStuck:after {
+            opacity: 1;
+        }
+    }
+
+    .sm-header-nav-wrap {
+        &.isStuck {
+            nav.navigation ul {
+                padding-top: 15px;
+            }
+        }
+    }
+}
+

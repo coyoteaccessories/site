@@ -1,0 +1,268 @@
+// Local vars
+
+@newsletter-popup_block-indent: 30px;
+@newsletter-popup_title-size: 24px;
+@newsletter-popup_title-color: @color-default;
+@newsletter-popup_content-color: @color-default;
+@newsletter-popup_social-bg: #f2f2f2;
+@newsletter-popup_block-color: #dcdcdc;
+@newsletter-popup_input-color: @color-default;
+
+& when (@media-target = 'mobile') {
+    // Main Styles
+    .newsletter-popup.modal-popup {
+        // Modal
+        .modal-inner-wrap {
+            margin-top: 7%;
+            margin-right: auto;
+            margin-left: auto;
+            max-width: 94%;
+        }
+
+        .modal-header, .modal-content, .modal-footer {
+            padding-left: 5%;
+            padding-right: 5%;
+        }
+
+        .modal-header {
+            padding-top: 5%;
+        }
+
+        .modal-footer {
+            padding-bottom: 5%;
+        }
+
+        // Header
+        header.modal-header {
+            h1.modal-title {
+                color: @newsletter-popup_title-color;
+                font-size: @newsletter-popup_title-size;
+                line-height: (7 / 6);
+                font-weight: 400;
+                border-bottom: none;
+                padding: 0;
+                margin: 0;
+                text-align: center;
+            }
+        }
+
+        // Content
+        .modal-content {
+            text-align: center;
+            .content-text {
+                margin-bottom: 20px;
+                color: @newsletter-popup_content-color;
+            }
+
+            .block.newsletter {
+                margin: 0;
+
+                .field {
+                    margin: 0;
+
+                    .control {
+                        input {
+                            height: 34px;
+                            padding: @form-element-input__padding;
+                            border: none;
+                            border-bottom: 1px solid @color-light;
+                            font-size: 12px;
+                            font-weight: 300;
+                            background: none;
+                            text-align: center;
+                            &:focus {
+                                border-color: @color-dark;
+                            }
+                        }
+
+                        &::before {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+
+        .buttons-container {
+            margin-top: 18px;
+
+            button + button {
+                margin-left: 10px;
+            }
+        }
+
+        .action.subscribe {
+            min-width: 170px;
+        }
+
+        .privacy-policy-check-box {
+            .make-flex();
+            align-items: flex-start;
+            margin-top: 30px;
+            font-size: 12px;
+            text-align: left;
+
+            .check_privacy_popup {
+                margin-top: 0;
+            }
+        }
+
+        // Footer
+        footer.modal-footer {
+            padding-top: 0;
+
+            .modal-social {
+                background: @newsletter-popup_social-bg;
+                padding: (@newsletter-popup_block-indent - 14) @newsletter-popup_block-indent (@newsletter-popup_block-indent - 19);
+
+                a {
+                    display: inline-block;
+                    margin-bottom: 5px;
+                    -webkit-transition: 0.2s;
+                    -moz-transition: 0.2s;
+                    -o-transition: 0.2s;
+                    transition: 0.2s;
+
+                    &:hover {
+                        opacity: 0.7;
+                    }
+                }
+            }
+        }
+    }
+
+    .bg-image {
+        background-image: url(../images/newsletter-bg.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+
+    .modal-popup.newsletter-bg {
+        .modal-inner-wrap {
+            background-image: url(../images/ns-popup-bg.png);
+            background-repeat: no-repeat;
+            background-size: auto 100%;
+            background-position: left center;
+        }
+
+        @media (max-width: (@screen__m - 1)) {
+            .modal-header, .modal-content, .modal-footer {
+                background: fade(@color-white, 80%);
+            }
+        }
+    }
+
+    .newsletter-widget {
+        background-color: @color-default;
+        color: @color-white;
+    }
+
+    .widget.newsletter {
+        padding-top: 5px;
+        padding-bottom: 20px;
+
+        .container {
+            .make-flex();
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .title {
+            padding-right: 38px;
+            margin-top: 15px;
+        }
+
+        .content {
+            flex-grow: 1;
+            flex-basis: 320px;
+            margin-top: 15px;
+        }
+
+        h5 {
+            margin: 0;
+        }
+
+        * + .description {
+            margin-top: 13px;
+        }
+
+        .form {
+            .make-flex();
+        }
+
+        .control {
+            position: relative;
+        }
+
+        .field {
+            padding: 0;
+            flex-grow: 1;
+        }
+
+        .actions {
+            flex-shrink: 0;
+        }
+
+        .field {
+            margin-right: 15px;
+        }
+
+        input {
+            border: none;
+        }
+
+        .mage-error:not(input) {
+            position: absolute;
+            left: 15px;
+            bottom: 2px;
+            font-size: 11px;
+            line-height: 1;
+        }
+    }
+}
+
+& when (@media-target = 'desktop') {
+    .newsletter-popup.modal-popup {
+        .modal-inner-wrap {
+            margin-top: 12%;
+        }
+    }
+
+    .modal-popup.newsletter-bg {
+        .modal-header, .modal-content, .modal-footer {
+            padding-left: 54%;
+        }
+    }
+
+    .widget.newsletter {
+        padding-top: 25px;
+        padding-bottom: 40px;
+
+        input {
+            height: 56px;
+            padding-left: 28px;
+        }
+
+        .mage-error:not(input) {
+            left: 28px;
+        }
+
+        @media (min-width: @screen__xl) {
+            padding-top: 32px;
+            padding-bottom: 47px;
+
+            .action {
+                min-width: 170px;
+            }
+
+            .field {
+                margin-right: 30px;
+            }
+
+            .content {
+                flex-basis: 500px;
+            }
+        }
+    }
+}

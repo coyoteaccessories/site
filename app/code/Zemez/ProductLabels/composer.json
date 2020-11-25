@@ -1,0 +1,17 @@
+{
+  "name" : "zemez/smart-product-labels",
+  "autoload": {
+    "psr-4": {"Zemez\\ProductLabels\\":""},
+    "files": [ "registration.php" ]
+  },
+  "description": "Product Labels",
+  "require": {
+    "magento/module-catalog": "*"
+  },
+  "type": "magento2-module",
+  "version": "1.1.4",
+  "extra": {
+    "isStandalone": "false",
+    "magentoVersion": "v2.1.6"
+  }
+}

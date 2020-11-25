@@ -1,0 +1,148 @@
+.category-grid2{
+    display: flex;
+}
+
+.home-featured-category {    
+    padding: 25px 30px;
+}
+
+.catalog-image-grid .category-grid2 .featured-categories-wrap{
+    background: url(../images/featured-categries-bg.jpg) no-repeat;
+    border: solid 1px #a6a6a6;
+    max-width: 309px;
+    height: 295px;
+    margin-top: 35px;
+    margin-bottom: 35px;
+    width: 25%;
+}
+
+.home-featured-category-item{
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.home-featured-category-item .category-name {
+    font-family: "TrumpGothicEastBold", arial, sans-serif;
+    font-size: 58px;
+    padding-bottom: 7px;
+    line-height: 55px;
+    text-align: left;
+    overflow: hidden;
+    color: #000;
+    text-transform: uppercase;
+}
+
+.categories-container{
+    max-width: 1358px;
+    margin: auto !important;
+    padding: 0 15px; 
+    width: auto;
+}
+
+.category-shop-btn {
+    background-color: #be1e2d;
+    border-radius: 0;
+    font-size: 23px;
+    text-transform: uppercase;
+}
+
+.owl-item .product-item-info .product-img {
+    height: auto;
+}
+
+.fitment-category-name {
+    max-width: 90%;
+}
+
+@media only screen and (max-width: 1370px){
+    .fitment-slider-wrapper {    
+        position: relative;    
+        margin-top: -15%;
+    }
+}
+
+@media only screen and (max-width: 991px){
+
+    .page-top{
+        height: auto;
+        background-color: transparent;
+    }
+
+    .owl-item .product-item-info .product-img {
+        height: auto;
+    }
+
+    .slider-pro-wrapper{
+        /*height: 600px;*/
+        height: auto;
+    }
+
+    #fitmentSlider.owl-carousel .owl-stage {
+        height: 170px;
+    }
+
+    .fitment-slider-wrapper{        
+        border-bottom: solid 1px #1c1e20;
+        margin-top: -95px;        
+        position: relative;
+    }
+
+    #fitmentSlider {
+        padding: 25px 0 !important;
+    }
+
+    .fitment-title h1{
+        font-size: 50px;
+    }
+
+    #fitmentSlider.owl-carousel .owl-item img {    
+        max-height: 125px;
+    }
+
+    .main-content .owl-theme .custom-nav .owl-next{
+        right: 0;
+    }
+
+    .main-content .owl-theme .custom-nav .owl-prev {
+        left: 0;        
+    }
+
+    .fitment-selection-title {
+        padding-top: 5px; 
+    }
+
+    .categories-container{
+        width: auto;
+    }
+
+    .category-grid2 {
+        display: block;
+        margin-bottom: 35px;
+    }
+
+    .catalog-image-grid .category-grid2 .featured-categories-wrap{        
+        width: calc(50% - 34px);
+        display: inline-block;
+        margin-right: 15px;
+        margin-left: 15px;
+    }
+
+    .catalog-image-grid .category-grid, .catalog-image-grid .category-list{
+        display: block;
+    }
+
+}
+@media only screen and (max-width: 470px){
+    .catalog-image-grid .category-grid2 .featured-categories-wrap{        
+        width: calc(100% - 2px);
+        float: none;
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: 0;
+    }
+
+    .owl-item .product-item-info .product-img {
+        height: 160px;
+    }
+}

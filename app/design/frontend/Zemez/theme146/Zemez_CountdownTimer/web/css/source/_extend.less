@@ -1,0 +1,63 @@
+//
+//  Countdown Timer
+//  ---------------------------------------------
+
+& when (@media-target = 'mobile') {
+    .timer-wrapper {
+        background: transparent;
+        .make-flex();
+        justify-content: center;
+        align-items: center;
+        margin: 15px 0;
+
+        > div {
+            .make-flex();
+            align-items: center;
+            background: @color-white;
+            font-weight: 300;
+            max-width: 300px;
+            padding: 4px 4px 7px;
+            font-size: 10px;
+            line-height: 1;
+            text-align: center;
+
+            span {
+                display: block;
+                color: @color-primary;
+                span {
+                    font-size: 16px;
+                    font-weight: 500;
+                    margin-bottom: 2px;
+                }
+            }
+
+            > span {
+                margin-left: 4px;
+                margin-right: 4px;
+            }
+        }
+    }
+}
+
+& when (@media-target = 'desktop') {
+    .timer-wrapper {
+        > div {
+            @media (min-width: @screen__xl) {
+                padding: 7px 7px 11px;
+                font-size: 14px;
+
+                span {
+                    span {
+                        font-size: 24px;
+                        margin-bottom: 4px;
+                    }
+                }
+
+                > span {
+                    margin-left: 9px;
+                    margin-right: 9px;
+                }
+            }
+        }
+    }
+}

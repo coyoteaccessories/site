@@ -1,0 +1,35 @@
+<?php
+/** @var $block Zemez\NewsletterPopup\Block\Styles */
+$helper = $block->getHelper();
+?>
+
+<?php if ($helper->getPopupWidth()): ?>
+  .modal-popup.newsletter-popup .modal-inner-wrap {
+      width: <?php echo $helper->getPopupWidth(); ?>px;
+  }
+<?php endif; ?>
+
+<?php if ($helper->getButtonColor()): ?>
+  .modal-popup.newsletter-popup .buttons-container button.subscribe {
+      border-color: <?php echo $helper->getButtonColor(); ?>;
+  }
+<?php endif; ?>
+
+<?php if ($helper->getButtonHoverColor()): ?>
+  .modal-popup.newsletter-popup .buttons-container button.subscribe:hover {
+      background-color: <?php echo $helper->getButtonHoverColor(); ?>;
+      border-color: <?php echo $helper->getButtonHoverColor(); ?>;
+  }
+<?php endif; ?>
+
+<?php foreach ($helper->getAvailableIcons() as $icon): ?>
+.modal-popup .modal-social .fa-<?php echo $icon ?> {
+    color: <?php echo $helper->getIconColor($icon) ?: '#000' ?>;
+    background-color: <?php echo $helper->getIconBackground($icon) ?: '#fff' ?>;
+}
+.modal-popup .modal-social .fa-<?php echo $icon ?>:hover,
+.modal-popup .modal-social .fa-<?php echo $icon ?>:active {
+    color: <?php echo $helper->getIconHoverColor($icon) ?: '#000' ?>;
+    background-color: <?php echo $helper->getIconBackgroundHover($icon) ?: '#fff' ?>;
+}
+<?php endforeach; ?>

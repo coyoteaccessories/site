@@ -1,0 +1,30 @@
+& when (@media-target = 'mobile') {
+    .smart-labels {
+        color: @color-default;
+    }
+
+    .smart-label {
+        display: inline-block;
+        position: absolute;
+        box-sizing: border-box;
+        z-index: 2;
+        margin-top: 6px;
+        margin-left: 8px;
+        font-size: 14px;
+        font-weight: 700;
+
+        & + .smart-label {
+            margin-top: 34px;
+        }
+    }
+
+    .product-wrap .smart-label {
+        margin-top: 10px;
+    }
+}
+
+& when (@media-target = 'desktop') {
+    .product-wrap .smart-label {
+        margin-left: 30px;
+    }
+}

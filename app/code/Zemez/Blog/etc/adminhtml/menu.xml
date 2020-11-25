@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <update id="Zemez_Base::modules" title="Zemez" module="Zemez_Blog" sortOrder="30" resource="Zemez_Base::modules" />
+        <add id="Zemez_Blog::blog_elements" title="Blog" module="Zemez_Blog" parent="Zemez_Base::modules" sortOrder="10"  resource="Zemez_Blog::blog_elements"/>
+        <add id="Zemez_Blog::category" title="Categories" module="Zemez_Blog" sortOrder="0" parent="Zemez_Blog::blog_elements" action="tm_blog/category/" resource="Zemez_Blog::category"/>
+        <add id="Zemez_Blog::post" title="Posts" module="Zemez_Blog" sortOrder="0" parent="Zemez_Blog::blog_elements" action="tm_blog/post/" resource="Zemez_Blog::post"/>
+        <add id="Zemez_Blog::comment" title="Comments" module="Zemez_Blog" sortOrder="0" parent="Zemez_Blog::blog_elements" action="tm_blog/comment/" resource="Zemez_Blog::comment"/>
+    </menu>
+</config>

@@ -1,0 +1,32 @@
+<?php
+/**
+ * Copyright © Zemez, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Infinite scroll template
+ *
+ * @var $block \Zemez\AjaxCatalog\Block\InfiniteScroll
+ */
+?>
+
+<?php if($block->isEnabled()): ?>
+    <div class="infiniteScroll_wrap">
+        <div id="infinite_loadMoreAnchor"
+             data-pages="<?= /* @escapeNotVerified */ $block->getPagesToShow() ?>">
+        </div>
+        <div id="infinite_lastPageNum"
+             data-pages="<?= /* @escapeNotVerified */ $block->getPagesCount() ?>">
+        </div>
+
+        <div class="actions" style="display:none">
+            <button class="action primary"><span><?= /* @escapeNotVerified */ __('Show More') ?></span><span class="count-primary-pages"></span></button>
+        </div>
+    </div>
+<?php endif; ?>
+

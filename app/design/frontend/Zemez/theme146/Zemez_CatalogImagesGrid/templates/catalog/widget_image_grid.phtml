@@ -1,0 +1,112 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+// @codingStandardsIgnoreFile
+?>
+<?php
+/**
+ * Catalog image grid widget template
+ *
+ */
+?>
+
+<?php
+$category = $block->getCategory();
+$showImageInCategory = $block->getImageCategories();
+$showImageInSubcategory = $block->getImageSubcategories();
+$imageType = $block->getImageType();
+$categoryToShow = $block->getAmountCategories();
+$subCategoryToShow = $block->getAmountSubcategories();
+$imageWidth = $block->getImageWidth();
+$columnsCount = $block->getColumnsCount();
+$categories = $block->getChildrens($category);
+$iconSize = $block->getIconSize();
+$viewMore = $block->getViewMore();
+$viewMoreText = $block->getViewMoreText();
+?>
+
+
+<style>
+<?php if ($columnsCount): ?>
+        .category-grid.columns-<?php echo $columnsCount ?> > li{
+            flex-basis: <?php echo $block->getColumnsWidth($columnsCount) ?>;
+            max-width: <?php echo $block->getColumnsWidth($columnsCount) ?>;
+        }
+<?php endif; ?>
+<?php if ($imageType == 'font_icon' && $iconSize): ?>
+        .category-grid .category-icon {
+            font-size: <?= /* @escapeNotVerified */ $iconSize; ?>px;
+        }
+<?php endif; ?>
+</style>
+
+
+<div class='categories-container catalog-image-grid category-id-<?= /* @escapeNotVerified */ $category->getId(); ?> <?= /* @escapeNotVerified */ $block->getCssClass(); ?>'>
+<?php if ($block->getTitle()): ?>
+        <div class='block-title'><strong><?= /* @escapeNotVerified */ $block->getTitle(); ?></strong></div>
+    <?php endif; ?>
+    <div class='category-grid2 columns-<?= /* @escapeNotVerified */ $columnsCount; ?>'>
+    <?php $categoryNum = 1; ?>
+        <?php foreach ($categories as $rootCategory): ?>
+            <?php
+            if ($categoryNum > $categoryToShow)
+                break;
+            $categoryNum++;
+            $categoryFontIcon = $rootCategory->getIconClass();
+            ?>
+
+            <div class="featured-categories-wrap">
+                <div class='grid-inner home-featured-category'>
+                    <a href='<?= /* @escapeNotVerified */ $rootCategory->getUrl(); ?>' class='category-link home-featured-category-item'>
+                        <?php if ($showImageInCategory && $block->getImageByType($rootCategory, $imageType)): ?>
+                            <span class='category-image'>
+                                <img alt='' width='<?= /* @escapeNotVerified */ $imageWidth; ?>' src='<?= /* @escapeNotVerified */ $block->getImageByType($rootCategory, $imageType); ?>'>
+                            </span>
+                        <?php endif; ?>
+                        <?php if ($showImageInCategory && $categoryFontIcon && $imageType == 'font_icon'): ?>
+                            <i class='category-icon <?= /* @escapeNotVerified */ $categoryFontIcon; ?>'></i>
+                        <?php endif; ?>
+                        <span class="category-name"><?= /* @escapeNotVerified */ $rootCategory->getName(); ?></span>
+                    </a>
+                    <a href="#" class="category-shop-btn action primary">Shop Now</a>
+                    <?php
+                    $subCategoryNum = 1;
+                    $subCategories = $block->getChildrens($rootCategory);
+                    ?>
+                    <?php if (count($subCategories)): ?>
+                        <div class='inner'>
+                            <ul class='subcategory-grid'>
+                                <?php foreach ($subCategories as $subCategory): ?>
+                                    <?php
+                                    if ($subCategoryNum > $subCategoryToShow)
+                                        break;
+                                    $subCategoryNum++;
+                                    $subCategoryFontIcon = $subCategory->getIconClass();
+                                    ?>
+                                    <li>
+                                        <a href='<?= /* @escapeNotVerified */ $subCategory->getUrl(); ?>' class='subcategory-link'>
+                                            <?php if ($showImageInSubcategory && $block->getImageByType($subCategory, $imageType)): ?>
+                                                <span class='subcategory-image'>
+                                                    <img alt='' src='<?= /* @escapeNotVerified */ $block->getImageByType($subCategory, $imageType); ?>'>
+                                                </span>
+                                            <?php endif; ?>
+                                            <?php if ($showImageInSubcategory && $subCategoryFontIcon && $imageType == 'font_icon'): ?>
+                                                <i class='category-icon <?= /* @escapeNotVerified */ $subCategoryFontIcon; ?>'></i>
+                                            <?php endif; ?>
+                                            <span class="subcategory-name"><?= /* @escapeNotVerified */ $subCategory->getName(); ?></span>
+                                        </a>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                            <?php if ($viewMore && $subCategoryNum > $subCategoryToShow): ?>
+                                <a href='<?= /* @escapeNotVerified */ $rootCategory->getUrl(); ?>' class='button-more'><?= /* @escapeNotVerified */ __($viewMoreText ?: sprintf('View more in %s', $rootCategory->getName())) ?></a>
+                            <?php endif; ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</div>

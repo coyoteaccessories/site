@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Contact Us</title>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <container name="contact.us.wrapper" htmlClass="row" htmlTag="div" before="-">
+                <container name="contact.us.info.wrapper" htmlClass="col-m-5" htmlTag="div" before="-">
+                    <block class="Magento\Cms\Block\Block" name="contact_us_info" before="-">
+                        <arguments>
+                            <argument name="block_id" xsi:type="string">contact_us_info</argument>
+                        </arguments>
+                    </block>
+                </container>
+                <container name="contact.us.form.wrapper" htmlClass="col-m-7" htmlTag="div" after="contact.us.info.wrapper">
+                    <block class="Magento\Contact\Block\ContactForm" name="contactForm" template="Magento_Contact::form.phtml">
+                        <container name="form.additional.info" label="Form Additional Info"/>
+                    </block>
+                </container>
+            </container>
+        </referenceContainer>
+    </body>
+</page>

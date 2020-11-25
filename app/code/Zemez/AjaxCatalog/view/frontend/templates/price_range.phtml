@@ -1,0 +1,39 @@
+<?php
+/**
+ * Copyright © Zemez, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Price range template
+ *
+ * @var $block \Zemez\AjaxCatalog\Block\PriceSlider
+ */
+?>
+
+<div class="price-slider">
+    <div id="slider-range" data-mage-init='{"priceRangeSlider": <?= /* @escapeNotVerified */ $block->getOptionsJson() ?>}'></div>
+    <form action="" class="slider-fields">
+        <div class="slider-input">
+            <label for="minPrice">
+                <span><?= /* @escapeNotVerified */ __('from') ?></span>
+                <input type="text" id="minPrice" name="minPrice" size="3" value="<?= /* @escapeNotVerified */ $block->getMinPrice() ?>"/>
+            </label>
+        </div>
+        <div class="slider-input">
+            <label for="maxPrice">
+                <span><?= /* @escapeNotVerified */ __('to') ?></span>
+                <input type="text" id="maxPrice" name="maxPrice" size="3" value="<?= /* @escapeNotVerified */ $block->getMaxPrice() ?>"/>
+            </label>
+        </div>
+        <div class="slider-input">
+            <a href="<?= /* @escapeNotVerified */ $block->getCurrentUri() ?>" class="action primary" id="slider-range_submit">
+                <?= /* @escapeNotVerified */ __('Filter') ?>
+            </a>
+        </div>
+    </form>
+</div>

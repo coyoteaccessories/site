@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+
+        <!-- <add id="Zemez_ShopByBrand::brand_label"
+             title="Shop By Brand"
+             translate="title"
+             module="Zemez_ShopByBrand"
+             parent="Magento_Backend::content"
+             sortOrder="10"
+             resource="Zemez_ShopByBrand::brand"/> -->
+        <update id="Zemez_Base::modules"
+            title="Zemez"
+            module="Zemez_ShopByBrand"
+            sortOrder="30"
+            resource="Zemez_Base::modules" />
+        <add id="Zemez_ShopByBrand::ShopByBrand"
+            title="Shop By Brand" 
+            module="Zemez_ShopByBrand"
+            sortOrder="40"
+            resource="Zemez_ShopByBrand::ShopByBrand"
+            parent="Zemez_Base::modules" />
+        <add id="Zemez_ProductLabels::brand"
+             title="Brand Manage"
+             translate="title"
+             module="Zemez_ShopByBrand"
+             sortOrder="0"
+             action="brand/index/index"
+             resource="Zemez_ShopByBrand::brand"
+             parent="Zemez_ShopByBrand::ShopByBrand"/>
+    </menu>
+</config>

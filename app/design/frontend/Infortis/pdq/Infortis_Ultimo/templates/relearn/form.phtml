@@ -1,0 +1,150 @@
+<?php
+//$isLoggedIn = Mage::getSingleton('customer/session')->isLoggedIn();
+$isLoggedIn = $block->isActiveRetailer();
+
+$years = $block->getYears();
+//$garageVehicles = Mage::getSingleton('customer/session')->getMyGarage() ?: [];
+?>
+<?php if (!$isLoggedIn): ?>	
+    <h1 align="left" style="font-weight:bold;padding:14px 0px">Login Required</h1>
+    <table align="center">
+        <tbody>
+            <tr>
+                <td>  
+                    <p align="left">You must have an account and be logged in to access this feature.</p>
+                    <p align="left"><a style="color:#fe5252" href="<?php echo $block->getUrl('customer/account/login') ?>">Click here</a> to login.</p>
+                    <p align="left">If you need to establish an account, 
+                        <a style="color:#fe5252" href="<?php echo$block->getUrl('customer/account/create') ?>">click here</a>
+                        to register, otherwise <a href="javascript:history.back()">click here</a> to go back to the previous page.
+                    </p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+<?php else: ?>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-sm-3 app-form relearn">
+                <form action="<?php echo $this->getUrl('') ?>" method="get" id="form-validate">
+                    <h3>Select Your Vehicle</h3>				
+                    <div class="">
+                        <label for="relearn_year">Year</label>
+                        <select id="relearn_year" name="year">
+                            <option value="">Choose One</option>
+                            <?php foreach ($years as $year): ?>
+                                <option value="<?php echo $year ?>"><?php echo $year ?></option>
+                            <?php endforeach ?>
+                        </select>
+                    </div>
+                    <div class="">
+                        <label for="relearn_make">Make</label>
+                        <select id="relearn_make" name="make">
+                            <option value="">Choose One</option>
+                        </select>
+                    </div>
+                    <div class="">
+                        <label for="relearn_model">Model</label>
+                        <select id="relearn_model" name="model">
+                            <option value="">Choose One</option>
+                        </select>
+                    </div>
+                    <div class="">
+                        <label for="relearn_submodel">Submodel</label>
+                        <select id="relearn_submodel" name="submodel">
+                            <option value="">Choose One</option>
+                        </select>
+                    </div>
+                </form>
+                <div id="relearn-result" class="relearn-result" style="display: none"></div>
+            </div>
+            <div class="col-12 col-sm-9 make-img">
+                <img style="border-width:0px;" src="<?php echo $block->getViewFileUrl('images/inchoo/OSC-F2GA.jpg'); ?>" id="makeImg" />
+                <div id="result"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        require(['jquery'], function ($) {
+            $('#relearn_year').change(function () {
+                $('#relearn_make').html('<option value="">Make</option>');
+                $('#relearn_model').html('<option value="">Model</option>');
+                $('#relearn_submodel').html('<option value="">Sub Model</option>');
+                var year = $('#relearn_year').val();
+                if (year) {
+                    $.ajax({
+                        url: "<?php echo $this->getUrl('coyote_search/relearn/makes') ?>".replace('http:', location.protocol),
+                        type: "POST",
+                        data: {year: year},
+                        success: function (data) {
+                            $('#relearn_make').html(data);
+                        }
+                    });
+                }
+            });
+
+            $('#relearn_make').change(function () {
+                $('#relearn_model').html('<option value="">Model</option>');
+                $('#relearn_submodel').html('<option value="">Sub Model</option>');
+                var year = $('#relearn_year').val();
+                var make = $('#relearn_make').val();
+                var img = $("#relearn_make option:selected").text();
+                if (make) {
+                    $("#makeImg").attr(("src", "http://revolutionsupply.com/imagesMakes/" + img + ".jpg").replace('http:', location.protocol));
+                    $.ajax({
+                        url: "<?php echo $this->getUrl('coyote_search/relearn/models') ?>".replace('http:', location.protocol),
+                        type: "POST",
+                        data: {year: year, make: make},
+                        success: function (data) {
+                            $('#relearn_model').html(data);
+                        }
+                    });
+                } else {
+                    $("#makeImg").attr("src", "http://revolutionsupply.com/imagesMakes/defaultTPMS.jpg".replace('http:', location.protocol));
+                }
+            });
+
+            $('#relearn_model').change(function () {
+                $('#relearn_submodel').html('<option value="">Sub Model</option>');
+                var year = $('#relearn_year').val();
+                var make = $('#relearn_make').val();
+                var model = $('#relearn_model').val();
+                if (year && make && model) {
+                    $.ajax({
+                        url: "<?php echo $this->getUrl('coyote_search/relearn/submodels') ?>".replace('http:', location.protocol),
+                        type: "POST",
+                        data: {year: year, make: make, model: model},
+                        success: function (data) {
+                            $('#relearn_submodel').html(data);
+                        }
+                    });
+                }
+            });
+
+            $('#relearn_submodel').change(function () {
+                var year = $('#relearn_year').val();
+                var make = $('#relearn_make').val();
+                var model = $('#relearn_model').val();
+                var submodel = $('#relearn_submodel').val();
+                if (year && make && model && submodel) {
+                    $.ajax({
+                        url: "<?php echo $this->getUrl('coyote_search/relearn/url') ?>".replace('http:', location.protocol),
+                        type: "POST",
+                        data: {year: year, make: make, model: model, submodel: submodel},
+                        success: function (response) {
+                            $('#relearn-result').show().html(response.replace('http:', location.protocol));
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+    <script>
+
+    //	document.getElementById('form-validate').action = document.getElementById('filter-product').action.replace('http:', location.protocol);
+
+
+
+    </script>
+<?php endif;

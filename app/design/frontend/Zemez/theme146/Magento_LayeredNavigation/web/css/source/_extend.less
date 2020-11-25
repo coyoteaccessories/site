@@ -1,0 +1,341 @@
+//
+//  Filters
+//  __________________________________________________
+
+& when (@media-target = 'mobile') {
+    .filter-wrapper {
+        *,
+        *:before,
+        &:after {
+            box-sizing: border-box;
+        }
+
+        .block-title {
+            strong {
+                font-size: 22px;
+                font-weight: 500;
+            }
+        }
+    }
+
+    #layered-filter-block .modal-slide._show {
+        background-color: transparent;
+
+        a,
+        a > span {
+            transition: color .3s ease;
+        }
+    }
+
+    //Current filters
+    .filter-current--wrapper {
+        color: @color-dark;
+        margin-bottom: 40px;
+
+        .filter-current {
+            .item {
+                position: relative;
+                display: block;
+                justify-content: space-between;
+                align-items: center;
+
+                .action.remove {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    color: @color-dark;
+                    &:hover {
+                        color: @color-primary;
+                    }
+                }
+            }
+
+            .filter-label:after {
+                content: ':';
+            }
+
+            .remove {
+                .font-icon(@themeicon-cross2);
+                margin-left: auto;
+                line-height: 0;
+
+                &:before {
+                    font-size: 12px;
+                    line-height: 1.4;
+                }
+
+                span {
+                    display: none;
+                }
+            }
+        }
+
+        .filter-label {
+            display: inline-block;
+            font-weight: 400;
+            color: @color-default;
+        }
+
+        .filter-actions {
+            margin-bottom: 0;
+            line-height: 1.3;
+        }
+
+        .filter-clear {
+            color: @color-primary;
+            text-decoration: underline;
+
+            &:hover {
+                color: @color-default;
+            }
+        }
+    }
+
+    .filter-current-subtitle {
+        color: @color-dark;
+        font-size: 14px;
+        font-weight: 400;
+        margin-top: 20px;
+    }
+
+    //Filter options
+    .filter-options {
+        .filter-options-item {
+            margin-top: 20px;
+        }
+
+        .filter-options-title {
+            .font-icon(@themeicon-minus);
+            color: @color-dark;
+            font-size: 14px;
+            line-height: 26px;
+            font-weight: 700;
+            margin-bottom: 0;
+            padding-right: 30px;
+            position: relative;
+            cursor: pointer;
+            width: 100%;
+            &:before {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 26px;
+                height: 26px;
+                text-align: right;
+                font-size: 14px;
+                line-height: 1;
+                padding: 5px 0;
+            }
+
+            &[role="tab"] {
+                margin-bottom: 0;
+
+                &:before {
+                    top: 0;
+                }
+            }
+
+            &[aria-expanded="false"]:before {
+                content: @themeicon-plus;
+            }
+        }
+
+        .filter-options-content {
+            padding: 8px 0 2px;
+            margin-bottom: 0;
+
+            .item {
+                .make-flex();
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: nowrap;
+                padding: 4px 0;
+
+                a {
+                    text-transform: capitalize;
+                    color: @color-default;
+                    &:hover {
+                        color: @color-primary;
+                    }
+
+                    &:first-child {
+                        flex: 0 1 auto;
+                        padding-right: 8px;
+                        box-sizing: border-box;
+                    }
+                    &:last-child {
+                        flex: 1 0 auto;
+                        text-align: right;
+                    }
+                }
+            }
+            .count {
+                color: @color-dark;
+                padding-left: 4px;
+            }
+            a:hover .count {
+                color: @color-primary;
+            }
+        }
+
+        .price-slider .slider-fields a.action {
+            margin-top: 8px;
+        }
+    }
+
+    button.action.filter-toggle {
+        .font-icon(@themeicon-ui-2_filter);
+        padding: 11px 20px;
+        span {
+            padding-left: 5px;
+        }
+    }
+
+    .toolbar-bottom button.action.filter-toggle {
+        display: none !important;
+    }
+
+    // Price Slider
+    .sidebar .price-slider {
+        padding-top: 15px;
+
+        .slider-fields {
+            .slider-input {
+                margin-top: 8px;
+            }
+            label {
+                color: @color-light;
+                font-weight: 700;
+                text-transform: capitalize;
+            }
+        }
+
+        .ui-slider-handle {
+            background: @color-primary;
+            width: 20px;
+            height: 20px;
+            border-radius: 20px;
+            margin-left: -10px;
+            margin-top: -5px;
+            transition: none;
+            &:after {
+                content: '';
+                position: absolute;
+                top: 2px;
+                left: 2px;
+                width: 16px;
+                height: 16px;
+                border-radius: 16px;
+                background: @color-white;
+            }
+        }
+        .ui-slider-range {
+            position: absolute;
+            height: 100%;
+            background: @color-primary;
+        }
+    }
+
+    .filter-slide {
+        .modal-header {
+            padding: 0;
+
+        }
+    }
+
+    // RTL
+    html.rtl {
+        //Current filters
+        .filter-current--wrapper {
+            .filter-current {
+                .item {
+                    .action.remove {
+                        right: auto;
+                        left: 0;
+                    }
+                }
+
+                .filter-value {
+                    padding-left: 0;
+                    padding-right: 4px;
+                }
+
+                .remove {
+                    margin-left: 0;
+                    margin-right: auto;
+                    padding-right: 0;
+                    padding-left: 5px;
+                }
+            }
+        }
+
+        //Filter options
+        .filter-options {
+            .filter-options-title {
+                padding-right: 0;
+                padding-left: 30px;
+                &:before {
+                    right: auto;
+                    left: 0;
+                }
+            }
+
+            .filter-options-content {
+                .item {
+                    a {
+                        &:first-child {
+                            padding-right: 0;
+                            padding-left: 8px;
+                        }
+                    }
+                }
+                .count {
+                    padding-left: 0;
+                    padding-right: 4px;
+                }
+            }
+        }
+
+        button.action.filter-toggle {
+            margin-right: 0;
+            margin-left: 15px;
+            span {
+                padding-left: 0;
+                padding-right: 5px;
+            }
+        }
+
+        // Price Slider
+        .sidebar .price-slider {
+            .ui-slider-handle {
+                margin-left: 0;
+                margin-right: -190px;
+                &:after {
+                    left: auto;
+                    right: 2px;
+                }
+            }
+        }
+    }
+}
+
+& when (@media-target = 'desktop') {
+    @media (min-width: @screen__l) {
+        .sidebar .filter-wrapper .filter-subtitle, .filter-current-subtitle {
+            display: none;
+        }
+    }
+
+    // RTL
+    html.rtl {
+
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l){
+    & when (@media-target = 'desktop') {
+        button.action.filter-toggle {
+            display: none;
+        }
+    }
+}

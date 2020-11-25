@@ -1,0 +1,17 @@
+{
+  "name" : "zemez/film-slider",
+  "autoload": {
+    "psr-4": {"Zemez\\":""},
+    "files": [ "registration.php" ]
+  },
+  "description": "Film Slider",
+  "require": {
+    "magento/module-catalog": "*"
+  },
+  "type": "magento2-module",
+  "version": "2.0.5",
+  "extra": {
+      "isStandalone": "true",
+      "magentoVersion": "v2.3.1"
+  }
+}

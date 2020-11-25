@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="header.container" htmlClass="page-header layout-2" />
+        <referenceContainer name="header.switchers" remove="true" />
+
+        <move element="header-wrapper.left" destination="sm-header.nav.wrap" before="-"/>
+        <move element="header-wrapper.right" destination="sm-header.nav.wrap" after="-"/>
+        <move element="logo" destination="header-wrapper.left" before="-"/>
+    </body>
+</page>

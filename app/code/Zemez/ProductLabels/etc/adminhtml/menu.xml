@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+/**
+ *
+ * Copyright © 2019 Zemez. All rights reserved.
+ * See COPYING.txt for license details.
+ *
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <update id="Zemez_Base::modules"
+            title="Zemez"
+            module="Zemez_ProductLabels"
+            sortOrder="30" 
+            resource="Zemez_Base::modules" />
+        <add id="Zemez_ProductLabels::productlabels"
+             title="Smart Product Labels"
+             module="Zemez_ProductLabels"
+             sortOrder="50"
+             resource="Zemez_ProductLabels::productlabels"
+             parent="Zemez_Base::modules"/>
+        <add id="Zemez_ProductLabels::productlabels_grid"
+             title="Smart Product Labels"
+             module="Zemez_ProductLabels"
+             sortOrder="0"
+             parent="Zemez_ProductLabels::productlabels"
+             action="labelproduct/index/index"
+             resource="Zemez_ProductLabels::productlabels_grid"/>
+    </menu>
+</config>

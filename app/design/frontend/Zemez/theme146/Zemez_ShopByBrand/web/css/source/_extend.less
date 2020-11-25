@@ -1,0 +1,84 @@
+//
+//  Shop By Brand
+//  ---------------------------------------------
+
+// Colors
+@shopbybrand_primary: @color-primary;
+@shopbybrand_secondary: @color-primary;
+
+// Fonts
+@shopbybrand_icon-family: 'FontAwesome';
+
+& when (@media-target = 'mobile') {
+    // Brand List
+    .brand-list .brand-item {
+        .inner {
+            .make-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid @border-color__base;
+            padding: 5px;
+            height: 100%;
+
+            .brand-logo {
+                img {
+                    will-change: transform;
+                    transition: .3s all ease;
+                }
+
+                &:hover img {
+                    opacity: .7;
+                }
+            }
+        }
+
+        .brand-item-name a {
+            font-size: 18px;
+            line-height: 20px;
+            font-weight: 700;
+            color: @color-primary;
+            &:hover {
+                color: @color-dark;
+            }
+        }
+    }
+
+    // Sidebar
+    .sidebar .block.block-brand {
+        .brand-items {
+            margin: 0 -8px 10px;
+        }
+
+        .brand-item {
+            flex-basis: 50%;
+            padding: 0 8px;
+            margin-bottom: 16px;
+
+            .brand-item-info {
+                border: 1px solid @border-color__base;
+                padding: 4px;
+                height: 100%;
+            }
+
+            .brand-item-name {
+                a {
+                    font-size: 14px;
+                    line-height: 18px;
+                    font-weight: 700;
+                    color: @color-primary;
+                    &:hover {
+                        color: @color-dark;
+                    }
+                }
+            }
+        }
+
+        .action.primary {
+            width: 100%;
+            @media (min-width: @screen__xs) and (max-width: (@screen__l - 1)) {
+                width: auto;
+            }
+        }
+    }
+}
+

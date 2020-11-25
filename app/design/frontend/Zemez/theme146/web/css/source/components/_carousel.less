@@ -1,0 +1,98 @@
+//
+//  Carousel custom styles
+//  _____________________________________________
+
+& when (@media-target = 'mobile') {
+    .owl-carousel {
+        .owl-stage {
+            .make-flex();
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        div.owl-nav {
+            margin-top: 10px;
+            margin-left: auto;
+            margin-right: auto;
+
+            button.owl-prev,
+            button.owl-next {
+                display: inline-block;
+                font-size: 14px;
+                line-height: 30px;
+                width: 30px;
+                transition: .3s all ease;
+                &:hover {
+                    transform: scale(1.3);
+                }
+            }
+
+            button.owl-prev {
+                .font-icon(@themeicon-left148);
+            }
+
+            button.owl-next {
+                .font-icon(@themeicon-right154);
+            }
+
+            button.owl-prev + button.owl-next {
+                margin-right: 0;
+                margin-left: 30px;
+            }
+        }
+
+        .owl-dots {
+            width: 100%;
+            padding-left: (@gutter__width / 2);
+            padding-right: (@gutter__width / 2);
+            text-align: center;
+            box-sizing: border-box;
+            button.owl-dot {
+                width: 10px;
+                height: 10px;
+                border-radius: 10px;
+                background: @color-light;
+                transition: .3s ease;
+
+                &.active, &:hover {
+                    background: @color-default;
+                }
+
+                & + button.owl-dot {
+                    margin-left: 15px;
+                }
+            }
+        }
+    }
+
+    // RTL
+    html.rtl {
+        .owl-carousel {
+            .owl-nav {
+                right: auto;
+                left: 15px;
+                button.owl-prev + button.owl-next {
+                    margin-right: 10px;
+                    margin-left: 0;
+                }
+            }
+
+            .owl-dots {
+                button.owl-dot {
+                    & + button.owl-dot {
+                        margin-left: 0;
+                        margin-right: 15px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+& when (@media-target = 'desktop') {
+    .owl-carousel {
+        div.owl-nav {
+            margin-top: 38px;
+        }
+    }
+}

@@ -1,0 +1,54 @@
+<?php
+    $brands = $block->getBrandCollection();
+    $helper = $this->helper('Zemez\ShopByBrand\Helper\Data');
+
+    $widgetTitle = $block->getTitle();
+    $brandLogoWidth = $block->getBrandsLogoWidth();
+    $isCarousel = $block->getShowCarousel();
+    $visibleItems = $block->getBrandsPerView();
+    $productPerRow = $block->getBrandsPerRow();
+    $cssClass = $block->getCssClass();
+    $itemWidth = '';
+
+?>
+<?php if ($productPerRow): ?>
+    <?php if (!$isCarousel): ?>
+        <?php $itemWidth = 100/$productPerRow; ?>
+        <style>
+            .brandlist .brand {
+                flex-basis:<?php echo $itemWidth ?>%;
+                width:<?php echo $itemWidth ?>%;
+            }
+        </style>
+    <?php endif; ?>
+<?php endif; ?>
+
+<div class="block widget brands <?php /* @escapeNotVerified */ echo $cssClass; ?>">
+    <?php if ($widgetTitle): ?>
+        <div class="block-title">
+            <strong role="heading" aria-level="2"><?php /* @escapeNotVerified */ echo __($widgetTitle); ?></strong>
+        </div>
+    <?php endif; ?>
+    <div class="block-content">
+        <div class="brandlist<?php if ($isCarousel): ?> owl-carousel<?php endif; ?>"
+            <?php if ($isCarousel): ?>
+                data-mage-init='{"brandCarousel": { "responsive": { "1200": { "items" : "<?php /* @escapeNotVerified */ echo $visibleItems; ?>" }}}}'
+            <?php endif; ?>>
+            <?php foreach ($brands as $brand):?>
+                <div class="brand">
+                    <div class="inner">
+                        <?php if ($brand->getImageLogoName()): ?>
+                            <a class="brand-logo" href="<?php echo $brand->getUrl() ?>">
+                                <img src="<?php echo $helper->resizeImageUrl($brand->getImageLogoName(), $brandLogoWidth); ?>" alt="<?php echo $block->escapeHtml($brand->getName()) ?>">
+                            </a>
+                        <?php endif; ?>
+
+                        <?php if($block->getShowBrandTitle()): ?>
+                            <h4 class="brand-name"><a class="brand-logo" href="<?php echo $brand->getUrl() ?>"><?php echo $brand->getName(); ?></a></h4>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            <?php endforeach;?>
+        </div>
+    </div>
+</div>

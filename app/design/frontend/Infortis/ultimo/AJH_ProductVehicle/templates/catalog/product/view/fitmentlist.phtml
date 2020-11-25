@@ -1,0 +1,56 @@
+<?php
+/** @var 
+ * $block AJH\ProductVehicle\Block\Product\View\FitmentList
+ */
+?>
+
+<?php
+$productVehicles = $block->getCAProductVehicles();
+
+
+if ($productVehicles->getSize() > 0):
+    echo $this->getLayout()
+            ->createBlock('AJH\ProductVehicle\Block\Search\Header\Form')
+            ->setTemplate('AJH_ProductVehicle::search/form.phtml')
+            ->toHtml();
+    ?>
+
+    <div class="product-vehicle-container">
+        <h3><?php echo __('Available Vehicle'); ?></h3>    
+        <table class="data-table" id="product-vehicle-table">
+            <col width="14%" />
+            <col width="14%" />
+            <col width="14%" />
+            <col width="13%" />
+            <col width="15%" />            
+            <thead>
+                <tr class="headings">
+                    <th rowspan="2"><?php echo __('Part Number') ?></th>
+                    <th rowspan="2"><?php echo __('Make') ?></th>
+                    <th rowspan="2"><?php echo __('Model') ?></th>
+                    <th rowspan="2"><?php echo __('Sub Model') ?></th>
+                    <th rowspan="2"><?php echo __('Model Year') ?></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $currentStoreDate = $this->getCurrentStoreDate() ?>                
+                <?php foreach ($productVehicles as $productVehicle): ?>                    
+                    <tr class="vehicle-<?php echo $productVehicle->getData('vehicleid'); ?>">
+                        <td class="data"><?php echo $productVehicle->getData('PartNumber'); ?></td>
+                        <td class="data"><?php echo $productVehicle->getData('MakeName'); ?></td>
+                        <td class="data"><?php echo $productVehicle->getData('ModelName'); ?></td>
+                        <td class="data"><?php echo $productVehicle->getData('SubModelName'); ?></td>
+                        <td class="data"><?php echo $productVehicle->getData('YearID'); ?></td>
+                    </tr>                    
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+        <?php if ($block->getPagerHtml()): ?>
+            <div class="order-products-toolbar toolbar bottom"><?php echo $block->getPagerHtml(); ?></div>
+        <?php endif ?>        
+    </div>   
+    <?php
+
+
+
+ endif;

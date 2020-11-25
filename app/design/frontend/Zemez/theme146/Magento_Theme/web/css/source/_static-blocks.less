@@ -1,0 +1,422 @@
+/*
+* @section      Custom pages
+* @description  This section holds specific style for Static blocks
+*/
+
+& when (@media-target = 'mobile') {
+    .block-static-block.widget {
+        margin-bottom: 0;
+    }
+
+    .banner {
+        display: block;
+        position: relative;
+        margin-bottom: 30px;
+
+        &.fixed {
+            background-attachment: fixed;
+            background-size: cover;
+            background-repeat: no-repeat;
+            padding: 7% 5%;
+            box-sizing: border-box;
+
+            &.banner-big {
+                padding-top: 13%;
+                padding-bottom: 13%;
+            }
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .banner-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            .make-flex();
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            align-content: flex-start;
+            padding: 12px 14px;
+            color: @color-default;
+
+            &.top {
+                justify-content: flex-start;
+            }
+
+            &.left {
+                align-items: flex-start;
+            }
+
+            &.right {
+                align-items: flex-end;
+            }
+
+            &.bottom {
+                justify-content: flex-end;
+            }
+        }
+
+        .banner-title {
+            position: absolute;
+            left: 5%;
+            right: 5%;
+            bottom: 50%;
+            transform: translateY(50%);
+            z-index: 1;
+            text-align: center;
+        }
+
+        &.hovered {
+            overflow: hidden;
+
+            img {
+                transition: 0.4s transform ease;
+            }
+
+            &:hover {
+                img {
+                    transform: scale(1.1);
+                }
+            }
+
+            .banner-content {
+                z-index: 1;
+            }
+        }
+
+        .bg-light {
+            background: fade(@color-lightest, 60);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        h5 {
+            font-weight: 400;
+        }
+
+        * + p {
+            margin-top: 10px;
+        }
+
+        * + h1 {
+            margin-top: 10px;
+        }
+
+        * + h2 {
+            margin-top: 10px;
+        }
+
+        * + h5 {
+            margin-top: 10px;
+        }
+
+        * + .action {
+            margin-top: 15px;
+        }
+
+        p + .action {
+            margin-top: 2px;
+        }
+
+        @media (min-width: @screen__xs) and (max-width: (@screen__s - 1)) {
+            h3 {
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: (@screen__m - 1)) {
+            .hover-content {
+                display: none;
+            }
+        }
+    }
+
+    a.banner {
+        color: inherit;
+        overflow: hidden;
+
+        &:before {
+            display: block;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 200%;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.3);
+            opacity: 0;
+            transition: 0.5s all ease;
+        }
+
+        &.dark {
+            &:before {
+                top: 100%;
+                background: linear-gradient(0deg, rgba(49, 49, 48, 1) 0%, rgba(255, 255, 255, 0) 100%);
+            }
+        }
+
+        &:hover {
+            &:before {
+                top: -40%;
+                opacity: 1;
+            }
+        }
+
+        .banner-content {
+            z-index: 1;
+        }
+    }
+
+    .banner-box {
+        padding: 10px 12px;
+        border: 2px solid;
+        margin: 5px;
+        min-width: 230px;
+        box-sizing: border-box;
+        text-align: center;
+
+        h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+    }
+
+    .banners-list {
+        padding: 11px 10px;
+        margin-bottom: 30px;
+    }
+
+    .contact-info {
+        margin-bottom: 0;
+        font-weight: 400;
+        line-height: (5 / 3);
+
+        dt {
+            font-weight: inherit;
+            margin-bottom: 0;
+
+            &:after {
+                content: ':';
+            }
+        }
+
+        dd {
+            margin-bottom: 0;
+        }
+
+        dd + dt {
+            margin-top: 12px;
+        }
+    }
+}
+
+& when (@media-target = 'desktop') {
+    .banner {
+        line-height: (20 / 18);
+
+        .banner-title {
+            transition: 0.3s all ease;
+        }
+
+        .hover-content {
+            position: absolute;
+            left: 11%;
+            right: 11%;
+            top: 45%;
+            margin-top: 8px;
+            z-index: 1;
+            transform: translateY(100%);
+            opacity: 0;
+            text-align: center;
+            transition: 0.3s all ease;
+        }
+
+        * + h1 {
+            margin-top: 26px;
+        }
+
+        * + h2 {
+            margin-top: 17px;
+        }
+
+        * + h5 {
+            margin-top: 26px;
+        }
+
+        * + .action {
+            margin-top: 30px;
+        }
+
+        p + .action {
+            margin-top: 15px;
+        }
+
+        h3 + .action {
+            margin-top: 18px;
+        }
+
+        @media (min-width: @screen__l) {
+            .banner-content {
+                padding: 25px 30px;
+            }
+        }
+
+        @media (min-width: @screen__xl) {
+            font-size: 18px;
+
+            &.fixed {
+                .make-flex();
+                align-items: center;
+                padding-top: 3%;
+                padding-bottom: 3%;
+                min-height: 480px;
+
+                > * {
+                    flex-grow: 1;
+                }
+            }
+
+            * + .action {
+                margin-top: 53px;
+            }
+
+            h2 + .action {
+                margin-top: 33px;
+            }
+        }
+
+        @media (min-width: @screen__xxl) {
+            h5 {
+                font-size: 30px;
+            }
+
+            .action {
+                padding: 20px 38px;
+
+                &.icon {
+                    padding-right: 65px;
+
+                    &:after {
+                        right: 27px;
+                        line-height: 60px;
+                    }
+                }
+            }
+
+            .hover-content {
+                left: 16%;
+                right: 16%;
+            }
+        }
+
+        @media (max-width: (@screen__xl - 1)) {
+            h1 {
+                font-size: 74px;
+            }
+
+            h2 {
+                font-size: 48px;
+            }
+
+            h3 {
+                font-size: 32px;
+            }
+
+            h4 {
+                font-size: 26px;
+            }
+        }
+
+        @media (max-width: (@screen__l - 1)) {
+            h2 {
+                font-size: 32px;
+            }
+
+            h3 {
+                font-size: 25px;
+            }
+
+
+            h4 {
+                font-size: 20px;
+            }
+
+            .hover-content {
+                top: 26%;
+            }
+        }
+    }
+
+    a.banner:hover {
+        .banner-title {
+            bottom: 55%;
+            transform: none;
+            transition-delay: 0.1s;
+        }
+
+        .hover-content {
+            opacity: 1;
+            transform: none;
+            transition-delay: 0.1s;
+        }
+
+        @media (max-width: (@screen__l - 1)) {
+            .banner-title {
+                bottom: 75%;
+            }
+        }
+    }
+
+    .banners-list {
+        .make-flex();
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+
+        @media (min-width: @screen__l) {
+            padding-left: 8%;
+            padding-right: 8%;
+        }
+    }
+
+    .banner-box {
+        @media (min-width: @screen__xl) {
+            padding: 18px 20px;
+            min-width: 308px;
+        }
+        @media (max-width: (@screen__xl - 1)) {
+            h5 {
+                font-size: 20px;
+            }
+        }
+    }
+
+    .contact-info {
+        @media (min-width: @screen__l) {
+            dd + dt {
+                margin-top: 18px;
+            }
+        }
+
+        @media (min-width: @screen__xl) {
+            font-size: 16px;
+        }
+
+        @media (min-width: @screen__xxl) {
+            font-size: 18px;
+
+            dd + dt {
+                margin-top: 28px;
+            }
+        }
+    }
+}

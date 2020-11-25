@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_ExportPro
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Amasty\ExportPro\Api\CronJobRepositoryInterface" type="Amasty\ExportPro\Model\Job\Repository"/>
+    <preference for="Amasty\ExportPro\Api\Data\CronJobInterface" type="Amasty\ExportPro\Model\Job\Job"/>
+    <preference for="Amasty\ExportPro\Api\HistoryRepositoryInterface" type="Amasty\ExportPro\Model\History\Repository"/>
+    <preference for="Amasty\ExportPro\Api\Data\HistoryInterface" type="Amasty\ExportPro\Model\History\History"/>
+    <preference for="Amasty\ExportPro\Api\LastExportedIdRepositoryInterface"
+                type="Amasty\ExportPro\Model\LastExportedId\Repository"/>
+    <preference for="Amasty\ExportPro\Api\Data\LastExportedIdInterface" type="Amasty\ExportPro\Model\LastExportedId\LastExportedId"/>
+    <preference for="Amasty\ExportPro\Export\FileDestination\Type\FtpFile\ConfigInterface" type="Amasty\ExportPro\Export\FileDestination\Type\FtpFile\Config"/>
+    <preference for="Amasty\ExportPro\Export\FileDestination\Type\SftpFile\ConfigInterface" type="Amasty\ExportPro\Export\FileDestination\Type\SftpFile\Config"/>
+    <preference for="Amasty\ExportPro\Export\FileDestination\Type\Email\ConfigInterface" type="Amasty\ExportPro\Export\FileDestination\Type\Email\Config"/>
+
+    <preference for="Amasty\ExportPro\Export\Template\Type\Xlsx\ConfigInterface" type="Amasty\ExportPro\Export\Template\Type\Xlsx\Config"/>
+    <preference for="Amasty\ExportPro\Export\Template\Type\Ods\ConfigInterface" type="Amasty\ExportPro\Export\Template\Type\Ods\Config"/>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="export_job_listing_data_source" xsi:type="string">Amasty\ExportPro\Model\Job\ResourceModel\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Amasty\ExportPro\Model\Job\ResourceModel\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">amasty_export_cron_job</argument>
+            <argument name="resourceModel" xsi:type="string">Amasty\ExportPro\Model\Job\ResourceModel\Job</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Amasty\ExportPro\Model\History\HistoryStrategies">
+        <arguments>
+            <argument name="strategies" xsi:type="array">
+                <item name="export" xsi:type="string">export</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Amasty\ExportCore\Api\FileDestination\FileDestinationConfigInterface">
+        <arguments>
+            <argument name="fileDestinationConfig" xsi:type="array">
+                <item name="ftp" xsi:type="array">
+                    <item name="code" xsi:type="const">Amasty\ExportPro\Export\FileDestination\Type\FtpFile\Meta::TYPE_ID</item>
+                    <item name="fileDestinationClass" xsi:type="string">Amasty\ExportPro\Export\FileDestination\Type\FtpFile\FileDestination</item>
+                    <item name="metaClass" xsi:type="string">Amasty\ExportPro\Export\FileDestination\Type\FtpFile\Meta</item>
+                    <item translatable="true" name="name" xsi:type="string">Upload Exported File By FTP</item>
+                </item>
+                <item name="sftp" xsi:type="array">
+                    <item name="code" xsi:type="const">Amasty\ExportPro\Export\FileDestination\Type\SftpFile\Meta::TYPE_ID</item>
+                    <item name="fileDestinationClass" xsi:type="string">Amasty\ExportPro\Export\FileDestination\Type\SftpFile\FileDestination</item>
+                    <item name="metaClass" xsi:type="string">Amasty\ExportPro\Export\FileDestination\Type\SftpFile\Meta</item>
+                    <item translatable="true" name="name" xsi:type="string">Upload Exported File By SFTP</item>
+                </item>
+                <item name="email" xsi:type="array">
+                    <item name="code" xsi:type="const">Amasty\ExportPro\Export\FileDestination\Type\Email\Meta::TYPE_ID</item>
+                    <item name="fileDestinationClass" xsi:type="string">Amasty\ExportPro\Export\FileDestination\Type\Email\FileDestination</item>
+                    <item name="metaClass" xsi:type="string">Amasty\ExportPro\Export\FileDestination\Type\Email\Meta</item>
+                    <item translatable="true" name="name" xsi:type="string">Send Exported File to E-mail</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Amasty\ExportCore\Api\PostProcessing\PostProcessingConfigInterface">
+        <arguments>
+            <argument name="postProcessingConfig" xsi:type="array">
+                <item name="compress" xsi:type="array">
+                    <item name="code" xsi:type="const">Amasty\ExportPro\Export\PostProcessing\Type\Compress\Meta::TYPE_ID</item>
+                    <item name="processorClass" xsi:type="string">Amasty\ExportPro\Export\PostProcessing\Type\Compress\Processor</item>
+                    <item name="metaClass" xsi:type="string">Amasty\ExportPro\Export\PostProcessing\Type\Compress\Meta</item>
+                    <item translatable="true" name="name" xsi:type="string">Compress Export File With Gzip</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Amasty\ExportCore\Api\Template\TemplateConfigInterface">
+        <arguments>
+            <argument name="templateConfig" xsi:type="array">
+                <item name="ods" xsi:type="array">
+                    <item name="code" xsi:type="const">Amasty\ExportPro\Export\Template\Type\Ods\Renderer::TYPE_ID</item>
+                    <item name="rendererClass" xsi:type="string">Amasty\ExportPro\Export\Template\Type\Ods\Renderer</item>
+                    <item name="metaClass" xsi:type="string">Amasty\ExportPro\Export\Template\Type\Ods\Meta</item>
+                    <item translatable="true" name="name" xsi:type="string">ODS</item>
+                </item>
+                <item name="xlsx" xsi:type="array">
+                    <item name="code" xsi:type="const">Amasty\ExportPro\Export\Template\Type\Xlsx\Renderer::TYPE_ID</item>
+                    <item name="rendererClass" xsi:type="string">Amasty\ExportPro\Export\Template\Type\Xlsx\Renderer</item>
+                    <item name="metaClass" xsi:type="string">Amasty\ExportPro\Export\Template\Type\Xlsx\Meta</item>
+                    <item translatable="true" name="name" xsi:type="string">XLSX</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <!-- TODO inject batch size/export new entities in job form -->
+    <virtualType name="AmastyExport">
+        <arguments>
+            <argument name="actionGroups" xsi:type="array">
+                <item name="preparation" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">10</item>
+                    <item name="actions" xsi:type="array">
+                        <item name="addLastExportedIdFilter" xsi:type="array">
+                            <item name="class" xsi:type="string">Amasty\ExportPro\Export\Action\Preparation\AddLastExportedIdFilterAction</item>
+                            <item name="sortOrder" xsi:type="number">35</item>
+                        </item>
+                        <item name="saveLastExportedId" xsi:type="array">
+                            <item name="class" xsi:type="string">Amasty\ExportPro\Export\Action\Preparation\SaveLastExportedIdAction</item>
+                            <item name="sortOrder" xsi:type="number">45</item>
+                        </item>
+                    </item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+</config>

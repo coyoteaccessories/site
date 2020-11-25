@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="zemez" translate="label" sortOrder="90">
+            <label>Zemez</label>
+        </tab>
+        <section id="ajaxcompare" translate="label" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Ajax Product Compare</label>
+            <tab>zemez</tab>
+            <resource>Zemez_AjaxCompare::config_ajaxcompare</resource>
+            <group id="config" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Ajax Product Compare Settings</label>
+                <field id="version" translate="label comment" type="label" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Version</label>
+                    <comment>Current module version.</comment>
+                    <frontend_model>Zemez\AjaxCompare\Block\Adminhtml\System\Config\Version</frontend_model>
+                </field>
+                <field id="ajaxcompare_product_active" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Ajax Product Compare</label>
+                    <comment>Set to "Enable" to add products to the Comparison List without reloading the page.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

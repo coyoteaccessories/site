@@ -1,0 +1,309 @@
+"block_id","title","identifier","content","creation_time","update_time","is_active"
+"1","Footer Column Content 1","footer_col_1","<p>Moto offers the largest selection of leading brands in aftermarket parts for motorcycles. When buying spare moto parts you will benefit and make sure the quality of all auto parts is beyond expectations. Our Store is truly a one-stop motorcycle shop, with in-house bank finance and insurance options to suit any budget with worldwide delivery.</p>","2018-09-18 14:07:20","2019-07-11 10:29:09","1"
+"2","Footer Column Content 2","footer_col_2","<dl class=""contact-info"">
+    <dt>Address</dt>
+    <dd>New Yourk, <br class=""hidden-mobile""> Street Avenue, NY 2540</dd>
+
+    <dt>Phone</dt>
+    <dd><a href=""tel:8001234567"">800-123-4567</a></dd>
+
+    <dt>Email</dt>
+    <dd><a href=""mailto:info@demolink.org"">info@demolink.org</a></dd>
+</dl>","2018-09-18 16:10:57","2019-07-12 16:57:40","1"
+"3","Footer Column 1 Title Layout 2","footer_l2_col_1_title","<h4>Information</h4>","2018-09-18 16:11:42","2019-07-12 18:21:31","1"
+"4","Footer Column Content 1 Layout 2","footer_l2_col_1","<ul>
+    <li><a href=""{{store direct_url=""about-us""}}"">About Us</a></li>
+    <li><a href=""{{store direct_url=""customer-service""}}"">Customer Service</a></li>
+    <li><a href=""{{store url=""""}}template-settings"">Template Settings</a></li>
+</ul>","2018-09-18 16:12:18","2019-07-12 18:21:14","1"
+"5","Footer Column Content 2 Layout 2","footer_l2_col_2","<div class=""footer-col"">
+	<h4>Why buy from us</h4>
+	<div class=""footer-col-content"">
+	    <ul>
+	        <li><a href=""{{store url=""""}}shipping-delivery"">Shipping & Delivery</a></li>
+	        <li><a href=""{{store url=""""}}secure-payment"">Secure payment</a></li>
+	        <li><a href=""{{store url=""""}}support"">Support</a></li>
+	        <li><a href=""{{store url=""""}}guarantee"">Guarantee</a></li>
+	        <li><a href=""{{store url=""""}}terms-conditions"">Terms & Conditions</a></li>
+	    </ul>
+	</div>
+</div>","2018-09-18 16:14:40","2019-07-12 18:26:35","1"
+"6","Footer Column Content 3 Layout 2","footer_l2_col_3","<div class=""footer-col"">
+    <h4>My account</h4>
+    <div class=""footer-col-content"">
+        <ul>
+            <li><a href=""{{store url='customer/account/login/'}}"">Sign In</a></li>
+            <li><a href=""{{store url='checkout/cart/'}}"">View Cart</a></li>
+            <li><a href=""{{store url='wishlist/'}}"">My Wishlist</a></li>
+            <li><a href=""{{store url=""""}}faq"">FAQ</a></li>
+        </ul>
+    </div>
+</div>","2018-09-18 16:26:13","2019-07-12 18:27:10","1"
+"7","Footer Column Content 4 Layout 2","footer_l2_col_4","<div class=""footer-col"">
+    <h4>Contacts</h4>
+    <div class=""footer-col-content"">
+        <dl class=""contact-info"">
+            <dt class=""themeicon-telephone"">Call us 24/7!</dt>
+            <dd><a href=""tel:8001234567"">800-123-4567</a></dd>
+
+            <dt class=""themeicon-map-marker"">Adresses</dt>
+            <dd>28 Jackson Blvd Ste 1020 Chicago IL 60604-2340</dd>
+        </dl>
+    </div>
+</div>","2018-10-10 17:31:43","2019-07-12 19:08:14","1"
+"8","Footer Column Content Layout 3","footer_l3_col_1","<ul class=""inline-list"">
+    <li><a href=""{{store direct_url=""about-us""}}"">About Us</a></li>
+    <li><a href=""{{store direct_url=""customer-service""}}"">Customer Service</a></li>
+    <li><a href=""{{store url=""""}}contact"">Contact Us</a></li>
+    <li><a href=""{{store url=""""}}privacy-policy-cookie-restriction-mode"">Privacy Policy</a></li>
+    <li><a href=""{{store url=""""}}sales/guest/form"">Orders and Returns</a></li>
+</ul>","2019-06-13 12:40:22","2019-07-13 13:00:45","1"
+"9","Header Info","header_info_block","<p>Phones: <a href=""callto:6001001122"">(600) 100-1122</a>; <a href=""callto:6001003377"">(600) 100-3377</a></p>
+<p>We are open: Mn - Fr: 10 am - 8 pm</p>","2019-06-20 12:26:54","2019-06-20 12:26:54","1"
+"10","Top Banner","top_banner","<div class=""banner banner-big fixed"" style=""background-image: url('{{media url=&quot;wysiwyg/banner-1.jpg&quot;}}')"">
+    <div class=""text-center"">
+        <h5 class=""color-white"">For Sale</h5>
+        <h1 class=""color-white"">Vintage Motorcycle</h1>
+        <h5 class=""color-white"">Save $4000</h5>
+        <a class=""action icon primary"" href=""{{store url='cruiser.html'}}"">Shop Now</a>
+    </div>
+</div>","2019-06-22 13:20:42","2019-08-07 16:46:42","1"
+"11","Banner 1","banner_1","<div class=""banner fixed"" style=""background-image: url('{{media url=&quot;wysiwyg/banner-2.jpg&quot;}}')"">
+    <div class=""text-center"">
+        <h4 class=""color-white"">Special Offer</h4>
+        <h2 class=""color-white"">Up To 40% Off Final Sale Items</h2>
+        <a class=""action icon primary"" href=""{{store url='cruiser.html'}}"">Shop Now</a>
+    </div>
+</div>","2019-06-22 15:23:02","2019-08-07 16:42:36","1"
+"12","Banner 2","banner_2","<div class=""banner fixed"" style=""background-image: url('{{media url=&quot;wysiwyg/banner-3.jpg&quot;}}')"">
+    <div class=""container"">
+        <h4 class=""color-white"">Special Offer</h4>
+        <h2 class=""color-white"">Get An Extra 15% Off Your <br class=""hidden-mobile""> First Order</h2>
+        <a class=""action icon primary"" href=""{{store url='cruiser.html'}}"">Shop Now</a>
+    </div>
+</div>","2019-06-25 09:15:01","2019-08-07 16:42:47","1"
+"13","Home Banners 1","home_banners_1","<div class=""row no-gutter"">
+    <div class=""col-xs-4"">
+        <a class=""banner dark"" href=""{{store url='cruiser.html'}}"">
+            <img src=""{{media url=&quot;wysiwyg/banner-4.jpg&quot;}}"" alt="""" />
+            <h3 class=""banner-title color-white"">Cruisers Motorcycle</h3>
+            <div class=""hover-content"">
+                <p class=""color-white"">Browse the largest selection of used motorcycles for sale at Moto.</p>
+                <span class=""action icon secondary-2"">Shop Now</span>
+            </div>
+        </a>
+    </div>
+    <div class=""col-xs-4"">
+        <a class=""banner dark"" href=""{{store url='dirt-bike.html'}}"">
+            <img src=""{{media url=&quot;wysiwyg/banner-5.jpg&quot;}}"" alt="""" />
+            <h3 class=""banner-title color-white"">Sport Bikes</h3>
+            <div class=""hover-content"">
+                <p class=""color-white"">Find the largest selection of Motorcycle Parts, Accessories & Riding Gear parts.</p>
+                <span class=""action icon secondary-2"">Shop Now</span>
+            </div>
+        </a>
+    </div>
+    <div class=""col-xs-4"">
+        <a class=""banner dark"" href=""{{store url='scooter.html'}}"">
+            <img src=""{{media url=&quot;wysiwyg/banner-6.jpg&quot;}}"" alt="""" />
+            <h3 class=""banner-title color-white"">Scooters</h3>
+            <div class=""hover-content"">
+                <p class=""color-white hidden-mobile"">Shop the latest in scooter gear! Pick up helmets, jackets, boots & more.</p>
+                <span class=""action icon secondary-2"">Shop Now</span>
+            </div>
+        </a>
+    </div>
+</div>","2019-07-02 15:54:36","2019-07-10 17:48:05","1"
+"14","Banner 3","banner_3","<div class=""banner fixed"" style=""background-image: url('{{media url=&quot;wysiwyg/banner-7.jpg&quot;}}')"">
+    <div class=""text-center"">
+        <h4 class=""color-white"">Special Offer</h4>
+        <h2 class=""color-white"">Get an Extra 15% off your first order</h2>
+        <a class=""action icon primary"" href=""{{store url='cruiser.html'}}"">Shop Now</a>
+    </div>
+</div>","2019-07-08 19:24:41","2019-08-07 16:44:04","1"
+"15","Home Banners 2","home_banners_2","<div class=""row"">
+    <div class=""col-m-6"">
+        <a class=""banner hovered dark margin-desktop-none"" href=""{{store url='cruiser.html'}}"">
+            <img src=""{{media url=&quot;wysiwyg/banner-8.jpg&quot;}}"" alt="""" />
+            <div class=""banner-content text-center"">
+                <h4 class=""color-white"">Special Offer</h4>
+                <h2 class=""color-white"">Up To 50% Off</h2>
+                <span class=""action icon primary"">Shop Now</span>
+            </div>
+        </a>
+    </div>
+    <div class=""col-m-6"">
+        <a class=""banner hovered dark margin-desktop-none"" href=""{{store url='cruiser.html'}}"">
+            <img src=""{{media url=&quot;wysiwyg/banner-9.jpg&quot;}}"" alt="""" />
+            <div class=""banner-content text-center"">
+                <h4 class=""color-white"">Big Sale</h4>
+                <h2 class=""color-white"">Sport Bikes</h2>
+                <span class=""action icon primary"">Shop Now</span>
+            </div>
+        </a>
+    </div>
+</div>","2019-07-09 16:36:37","2019-07-10 17:39:19","1"
+"16","Home Banners 3","home_banners_3","<div class=""row"">
+    <div class=""col-m-6"">
+        <a class=""banner hovered"" href=""{{store url='cruiser.html'}}"">
+            <img src=""{{media url=&quot;wysiwyg/banner-10.jpg&quot;}}"" alt="""" />
+            <div class=""banner-content top left"">
+                <h3 class=""bg-light"">Cruisers Motorcycle</h3>
+                <p class=""bg-light"">Find the best brands for cruiser motorcycle <br> accessories, parts & gear for sale.</p>
+                <span class=""action icon secondary-2"">Shop Now</span>
+            </div>
+        </a>
+    </div>
+    <div class=""col-m-6"">
+        <a class=""banner hovered"" href=""{{store url='street.html'}}"">
+            <img src=""{{media url=&quot;wysiwyg/banner-11.jpg&quot;}}"" alt="""" />
+            <div class=""banner-content top right text-right"">
+                <h3 class=""bg-light"">Body Protector</h3>
+                <p class=""bg-light"">Buy low price, high quality motorcycle body <br> protector with worldwide shipping!</p>
+                <span class=""action icon secondary-2"">Shop Now</span>
+            </div>
+        </a>
+    </div>
+</div>","2019-07-09 17:38:46","2019-07-10 09:49:36","1"
+"17","Home Banners 4","home_banners_4","<div class=""row justify-content-center"">
+    <div class=""col-xs-6 col-m-4"">
+        <a class=""banner hovered dark"" href=""{{store url='snow.html'}}"">
+            <img src=""{{media url=&quot;wysiwyg/banner-12.jpg&quot;}}"" alt="""" />
+            <div class=""banner-content text-center"">
+                <h3 class=""color-white"">Clearence</h3>
+                <p class=""color-white hidden-mobile"">Discount motorcycle gear from top <br> brands is on sale at Moto.</p>
+                <span class=""action icon secondary-2 hidden-mobile"">Shop Now</span>
+            </div>
+        </a>
+    </div>
+    <div class=""col-xs-6 col-m-4"">
+        <a class=""banner hovered"" href=""{{store url='street.html'}}"">
+            <img src=""{{media url=&quot;wysiwyg/banner-13.jpg&quot;}}"" alt="""" />
+            <div class=""banner-content top left"">
+                <p class=""bg-light hidden-mobile"">In Stock Now</p>
+                <h3 class=""bg-light"">Leatt Helmets</h3>
+                <span class=""action icon secondary-2 hidden-mobile"">Shop Now</span>
+            </div>
+        </a>
+    </div>
+    <div class=""col-xs-6 col-m-4"">
+        <a class=""banner hovered dark"" href=""{{store url='dirt-bike.html'}}"">
+            <img src=""{{media url=&quot;wysiwyg/banner-14.jpg&quot;}}"" alt="""" />
+            <div class=""banner-content text-center"">
+                <h3 class=""color-white"">Up To 60% Off</h3>
+                <p class=""color-white hidden-mobile"">Buy helmets, jackets, parts, tires & more <br> online for a great price!</p>
+                <span class=""action icon secondary-2 hidden-mobile"">Shop Now</span>
+            </div>
+        </a>
+    </div>
+</div>","2019-07-09 18:07:50","2019-07-10 10:29:41","1"
+"18","Home Banners 5","home_banners_5","<div class=""row"">
+    <div class=""col-xl-8 gutter-right-percentage"">
+        <div class=""row"">
+            <div class=""col-xs-8"">
+                <a class=""banner hovered"" href=""{{store url='street.html'}}"">
+                    <img src=""{{media url=&quot;wysiwyg/banner-15.jpg&quot;}}"" alt="""" />
+                    <div class=""banner-content top left"">
+                        <h3 class=""bg-light"">Mens Sport Boots</h3>
+                        <p class=""bg-light"">Find the pair of motorcycle racing boots <br> you need at Moto!</p>
+                        <span class=""action icon secondary-2"">Shop Now</span>
+                    </div>
+                </a>
+            </div>
+            <div class=""col-xs-4 gutter-left-percentage"">
+                <a class=""banner hovered"" href=""{{store url='clothing.html'}}"">
+                    <img src=""{{media url=&quot;wysiwyg/banner-16.jpg&quot;}}"" alt="""" />
+                    <div class=""banner-content top right text-right"">
+                        <h3 class=""bg-light"">40% Off</h3>
+                        <p class=""bg-light"">Off Everything</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class=""col-xl-4"">
+        <div class=""row"">
+            <div class=""col-xs-6 col-xl-12 gutter-bottom-percentage"">
+                <a class=""banner hovered dark"" href=""{{store url='dirt-bike/accessories.html'}}"">
+                    <img src=""{{media url=&quot;wysiwyg/banner-17.jpg&quot;}}"" alt="""" />
+                </a>
+            </div>
+            <div class=""col-xs-6 col-xl-12"">
+                <a class=""banner hovered"" href=""{{store url='street.html'}}"">
+                    <img src=""{{media url=&quot;wysiwyg/banner-18.jpg&quot;}}"" alt="""" />
+                    <div class=""banner-content text-center"">
+                        <h3 class=""color-white"">Used Bikes</h3>
+                        <p class=""color-white"">Huge Range in stock</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>","2019-07-10 09:18:04","2019-08-28 14:29:47","1"
+"19","Home Banners 6","home_banners_6","<div class=""banners-list bg-primary"">
+    <div class=""banner-box"">
+        <h5>Customer Service</h5>
+    </div>
+    <div class=""banner-box"">
+        <h5>Free Delivery Over $50</h5>
+    </div>
+    <div class=""banner-box"">
+        <h5>30 Days Return</h5>
+    </div>
+</div>","2019-07-10 13:45:48","2019-07-10 14:25:35","1"
+"20","Banner 4","banner_4","<div class=""banner fixed"" style=""background-image: url('{{media url=&quot;wysiwyg/banner-19.jpg&quot;}}')"">
+    <div class=""text-center"">
+        <h4 class=""color-white"">Save $3500</h4>
+        <h2 class=""color-white"">Exclusive Motorcycle</h2>
+        <a class=""action icon primary"" href=""{{store url='cruiser.html'}}"">Shop Now</a>
+    </div>
+</div>","2019-07-10 14:29:41","2019-08-07 16:45:27","1"
+"21","Banner 5","banner_5","<div class=""banner fixed"" style=""background-image: url('{{media url=&quot;wysiwyg/banner-20.jpg&quot;}}')"">
+    <div class=""container"">
+        <h4 class=""color-white"">Special Offer</h4>
+        <h2 class=""color-white"">Get An Extra 15% Off Your <br class=""hidden-mobile""> First Order</h2>
+        <a class=""action icon primary"" href=""{{store url='cruiser.html'}}"">Shop Now</a>
+    </div>
+</div>","2019-07-10 14:30:40","2019-08-07 16:45:50","1"
+"22","Menu Banner","menu_banner","<div class=""banner-absolute right"">
+    <img src=""{{media url=&quot;wysiwyg/menu-banner.png&quot;}}"" alt="""" />
+</div>","2019-07-12 18:23:19","2019-07-12 18:23:19","1"
+"23","Contact Us Info","contact_us_info","<!-- Contact Us Info -->
+<address class=""contact-us-info"">
+    <dl class=""contact-us-info-item"">
+        <dt><span class=""contact-us-info-icon fa fa-map-marker""></span>
+            <div class=""contact-us-info-title"">Address:</div>
+        </dt>
+        <dd>
+            <div class=""contact-us-info-description"">4578 Marmora Road, Glasgow, D04 89GR</div>
+        </dd>
+    </dl>
+    <dl class=""contact-us-info-item"">
+        <dt><span class=""contact-us-info-icon fa fa-phone""></span>
+            <div class=""contact-us-info-title"">Phones:</div>
+        </dt>
+        <dd>
+            <div class=""contact-us-info-description""><a href=""tel:8001230045"">(800) 123-0045</a>; <a
+                    href=""tel:8001230046"">(800) 123-0046</a></div>
+        </dd>
+    </dl>
+    <dl class=""contact-us-info-item"">
+        <dt><span class=""contact-us-info-icon fa fa-clock-o""></span>
+            <div class=""contact-us-info-title"">We are open:</div>
+        </dt>
+        <dd>
+            <div class=""contact-us-info-description"">Mn-Fr: 10 am-8 pm</div>
+        </dd>
+    </dl>
+    <dl class=""contact-us-info-item"">
+        <dt><span class=""contact-us-info-icon fa fa-envelope""></span>
+            <div class=""contact-us-info-title"">E-mail:</div>
+        </dt>
+        <dd>
+            <div class=""contact-us-info-description contact-us-info-description-email""><a
+                    href=""mailto:info@demolink.org"">info@demolink.org</a></div>
+        </dd>
+    </dl>
+</address>
+<!-- END Contact Us Info -->","2019-07-12 18:24:14","2019-07-12 18:24:14","1"
+"24","AMP Footer Links","amp_footer_links","<ul><li><a href=""{{store url='about-us'}}"">About Us</a></li><li><a href=""{{store url='contact'}}"">Contact Us</a></li><li><a href=""{{store url='customer-service'}}"">Customer Service</a></li><li><a href=""{{store url='privacy-policy-cookie-restriction-mode'}}"">Privacy Policy</a></li><li><a href=""{{store url='template-settings'}}"">Templates Settings</a></li></ul>","2019-07-12 18:25:07","2019-07-12 18:25:07","1"

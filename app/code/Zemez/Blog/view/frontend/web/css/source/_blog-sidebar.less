@@ -1,0 +1,61 @@
+
+& when (@media-target = 'mobile') {
+    // Main styles
+    .block-blog-categories,
+    .block-recent-posts,
+    .block-recent-comments {
+        .block-title {
+            margin-bottom: 20px;
+
+            strong {
+                font-size: 18px;
+            }
+        }
+
+        .block-content ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+
+            li {
+                margin: 15px 0 0;
+                padding-top: 15px;
+                border-top: solid 1px @blog_data-border-color;
+
+                &:first-child {
+                    border: none;
+                    margin-top: 0;
+                    padding-top: 0;
+                }
+            }
+        }
+    }
+
+    .block-blog-categories .block-content #blog-show-all {
+        cursor: pointer;
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+        &.closed .less,
+        &.opened .more {
+            display: none;
+        }
+    }
+
+    .block-recent-comments .title-section {
+        font-size: 13px;
+        padding-bottom: 10px;
+
+        strong {
+            font-weight: 600;
+
+            &:before {
+                font-size: 18px;
+                line-height: 16px;
+                vertical-align: middle;
+            }
+        }
+    }
+}

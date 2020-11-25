@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <head>
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <meta http-equiv="Content-Security-Policy" content="style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;" />
+        
+        <css src="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" src_type="url" rel="stylesheet" type="text/css" />
+        
+        <css src="css/fonts.css" rel="stylesheet" type="text/css" />
+        <css src="css/custom.css" rel="stylesheet" type="text/css" />
+        
+        <!-- Latest compiled and minified CSS -->
+        <!--<css src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" src_type="url" />-->
+
+        <!-- Popper JS -->
+        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js" src_type="url"/>-->
+
+        <!-- Latest compiled JavaScript -->
+        <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" src_type="url"/>-->
+
+        <!--<script type="text/javascript" src="https://www.bugherd.com/sidebarv2.js?apikey=xdi6h35hqbyhunjxsipsjg" async="true" src_type="url"></script>-->
+    </head>
+</page>

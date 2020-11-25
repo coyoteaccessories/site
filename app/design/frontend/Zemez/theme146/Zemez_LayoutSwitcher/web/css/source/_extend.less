@@ -1,0 +1,166 @@
+//
+//  LayoutSwitcher
+//  ---------------------------------------------
+@import '_header.less';
+@import '_footer.less';
+
+& when (@media-target = 'mobile') {
+    .layout-switcher {
+        position: fixed;
+        left: 0;
+        display: none;
+        z-index: 99;
+        top: 140px;
+        background: rgba(57, 57, 57, 0.9);
+        color: @color-white;
+
+        section {
+            overflow: hidden;
+            padding: 20px;
+            border-bottom: solid 1px #616161;
+            font-size: 13px;
+
+            .inner {
+                padding-bottom: 20px;
+
+                &.last {
+                    padding-bottom: 0;
+                }
+            }
+        }
+
+        .color-scheme {
+            padding: 1px 2px;
+            min-width: 30px;
+            max-width: 90px;
+            height: 28px;
+            float: left;
+            margin-right: 3px;
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            clear: right;
+
+            &.selected {
+                outline: 2px solid #FF5100;
+                color: #333;
+            }
+
+            &:not(.selected):hover {
+                outline: 1px solid #999;
+                color: #333;
+            }
+        }
+
+        #ls-icon {
+            position: absolute;
+            text-align: center;
+            cursor: pointer;
+            top: 0;
+            background: @color-default;
+            color: @color-white;
+            font-size: 26px;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            right: -50px;
+
+            &:before {
+                line-height: 50px;
+            }
+        }
+
+        .section.ls-title {
+            padding: 15px 20px 14px;
+
+            h3 {
+                color: @color-white;
+                font-size: 18px;
+                line-height: normal;
+                margin: 0;
+            }
+        }
+
+        label {
+            display: block;
+            padding-bottom: 5px;
+        }
+
+        .select-container {
+            position: relative;
+            background: fade(@color-dark, 20%);
+            cursor: pointer;
+            z-index: 2;
+
+            &::after {
+                content: '\f107';
+                font-family: 'FontAwesome';
+                position: absolute;
+                top: 6px;
+                right: 15px;
+            }
+
+            select {
+                font-size: 12px;
+                padding: 5px 8px;
+                width: 100%;
+                border: solid 1px #777777;
+                background-color: transparent;
+                color: @color-white;
+                box-shadow: none;
+                background-image: none;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                position: relative;
+                z-index: 3;
+                cursor: pointer;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+            option {
+                color: @color-default;
+            }
+        }
+
+        .buttons {
+            border-bottom: none;
+            text-align: center;
+
+            button {
+                &:last-child {
+                    margin-top: 15px;
+                }
+            }
+
+            .apply {
+                width: 100%;
+            }
+
+            .reset {
+                background: none;
+                border: none;
+                padding: 0;
+                text-decoration: underline;
+
+                &:hover {
+                    color: @color-secondary;
+                }
+            }
+        }
+
+        select {
+            height: 30px;
+        }
+    }
+
+    @media (max-width: (@screen__m - 1)) {
+        .layout-switcher {
+            position: absolute;
+        }
+    }
+}

@@ -1,0 +1,94 @@
+/*
+ * 	Featured Product by Zemez
+ */
+
+// Carousel and Tabs
+& when (@media-target = 'mobile'){
+    .block.featured {
+        &[role="tablist"] {
+            .block-title {
+                display: inline-block;
+                width: auto;
+                margin-right: 15px;
+                &:before {
+                    display: none;
+                }
+
+                strong {
+                    margin-bottom: 0;
+                    cursor: pointer;
+                }
+
+                &.active strong {
+                    color: #ccc;
+                }
+            }
+
+            .block-content {
+                float: right;
+                margin-left: -100%;
+                padding: 3rem 0 0;
+                width: 100%;
+            }
+
+            @media (max-width: (@screen__m - 1)) {
+                .block-title {
+                    display: block;
+                    width: 100%;
+                }
+
+                .block-content {
+                    float: none;
+                    margin-left: 0;
+                }
+            }
+        }
+
+        [role="tablist"] {
+            text-align: right;
+
+            .category-title {
+                display: inline-block;
+                width: auto;
+                padding: 0;
+                margin: 0 0 20px;
+                &:before {
+                    display: none;
+                }
+
+                strong {
+                    margin-bottom: 0;
+                    padding-left: 15px;
+                    cursor: pointer;
+                    font-size: 18px;
+                    font-weight: normal;
+                }
+
+                &.active strong {
+                    color: #ccc;
+                }
+            }
+
+            .category-content {
+                text-align: left;
+                float: right;
+                margin-left: -100%;
+                padding: 70px 0 0;
+                width: 100%;
+            }
+
+            @media (max-width: (@screen__m - 1)) {
+                .category-title {
+                    display: block;
+                    width: 100%;
+                }
+
+                .category-content {
+                    float: none;
+                    margin-left: 0;
+                    padding-top: 20px;
+                }
+            }
+        }
+    }
+}

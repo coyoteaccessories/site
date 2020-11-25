@@ -1,0 +1,19 @@
+{
+  "name": "litextension/magento-to-magento-migration",
+  "description": "N/A",
+  "require": {    
+  },
+  "authors": [
+    {
+      "name": "LitExtension"
+    }
+  ],
+  "type": "magento2-module",
+  "version": "3.2.1",
+  "autoload": {
+    "files": [ "registration.php" ],
+    "psr-4": {
+      "LitExtension\\MigrationToMagento\\": ""
+    }
+  }
+}

@@ -1,0 +1,44 @@
+
+& when (@media-target = 'mobile') {
+    // Brand List
+    .brand-list {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -15px 10px;
+        padding: 0;
+        list-style: none;
+
+        .brand-item {
+            flex-basis: 100%;
+            text-align: center;
+            margin-bottom: 30px;
+            box-sizing: border-box;
+            padding: 0 15px;
+
+            @media (min-width: @screen__xs) {
+                flex-basis: 50%;
+            }
+            @media (min-width: @screen__m) {
+                flex-basis: 25%;
+            }
+
+            .inner {
+                padding: 0 15px;
+            }
+
+            .brand-logo {
+                display: inline-block;
+                margin-bottom: 20px;
+            }
+
+            .brand-item-name {
+                margin: 0 0 10px;
+                font-size: 18px;
+            }
+
+            .brand-item-description {
+                text-align: left;
+            }
+        }
+    }
+}
