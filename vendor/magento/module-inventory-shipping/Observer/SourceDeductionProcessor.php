@@ -122,50 +122,36 @@ class SourceDeductionProcessor implements ObserverInterface
         }
         /** fix magento order/invoice **/
         /** mjc 10-13-2020 **/
-
-
         $foundMissing = false;
-
         foreach ($shipment->getAllItems() as $item) {
-
-                        $orderItem = $item->getOrderItem();
-
-                        $qtyShipped = $orderItem->getQtyShipped() + $item->getQty();
-                        if ($qtyShipped > $orderItem->getQtyOrdered())
-                        {
-                                $qtyShipped = $orderItem->getQtyOrdered();
-                        }
-                        if ($qtyShipped > 0)
-                        {
-                                $orderItem->setQtyShipped($qtyShipped );
-                                $orderItem->setQtyInvoiced($qtyShipped );
-                                $orderItem->save();
-                        } else {
-                                $foundMissing = true;
-                        }
-
-                }
-
-                $Norder = $shipment->getOrder()->load( $shipment->getOrder()->getId() );
-
-
-                if ($foundMissing == false)
-                {
-                        $newState = Order::STATE_COMPLETE;
-                }
-                else {
-                        $newState = Order::STATE_PROCESSING;
-                }
-
-
-                /** update order state of all items shipped **/
-                if ($newState != $Norder->getState())
-                {
-                        $Norder->setState($newState,true);
-                        $Norder->setStatus($newState);
-                        $Norder->addStatusToHistory($Norder->getStatus());
-                }
-                $Norder->save();
+			$orderItem = $item->getOrderItem();
+			$qtyShipped = $orderItem->getQtyShipped() + $item->getQty();
+			if ($qtyShipped > $orderItem->getQtyOrdered()) {
+				$qtyShipped = $orderItem->getQtyOrdered();
+			}
+			if ($qtyShipped > 0) {
+				$orderItem->setQtyShipped($qtyShipped );
+				$orderItem->setQtyInvoiced($qtyShipped );
+				$orderItem->save();
+			}
+			else {
+				$foundMissing = true;
+			}
+		}
+		$Norder = $shipment->getOrder()->load( $shipment->getOrder()->getId() );
+		if ($foundMissing == false) {
+			$newState = Order::STATE_COMPLETE;
+		}
+		else {
+			$newState = Order::STATE_PROCESSING;
+		}
+		/** update order state of all items shipped **/
+		if ($newState != $Norder->getState()) {
+			$Norder->setState($newState, true);
+			$Norder->setStatus($newState);
+			$Norder->addStatusToHistory($Norder->getStatus());
+		}
+		$Norder->save();
     }
 
     /**
