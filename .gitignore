@@ -26,6 +26,9 @@
 # 2020-11-26 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
 # It was changed by someone at 2020-10-13
 !/vendor/magento/module-inventory-shipping/Observer/SourceDeductionProcessor.php
+# 2020-11-21 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+# «A wrong PayPal Express Checkout Token is specified»: https://github.com/coyoteaccessories/site/issues/5
+!/vendor/magento/module-paypal/Controller/Express/AbstractExpress.php
 # 2020-11-26 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
 # It was changed by someone at 2020-09-02
 !/vendor/magento/module-sales/etc/webapi.xml
