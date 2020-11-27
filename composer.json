@@ -13,6 +13,7 @@
     "require": {
         "authorizenet/magento-module-authorizenet": "^1.0",
         "avalara/avatax-magento": "^1.5",
+        "coyoteaccessories/core": "*",
         "jetrails/magento2-cloudflare": "^1.2",
         "jetrails/magento2-varnish": "^1.1",
         "kiwicommerce/module-cron-scheduler": "^1.0",
