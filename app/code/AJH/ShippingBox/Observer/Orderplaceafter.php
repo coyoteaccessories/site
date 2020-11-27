@@ -40,6 +40,9 @@ class Orderplaceafter implements ObserverInterface {
     public function execute(\Magento\Framework\Event\Observer $observer) {
         $event = $observer->getEvent();
 
+        # 2020-11-27 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+        # «var/log/webgility.log" cannot be opened with mode "a"»: https://github.com/coyoteaccessories/site/issues/7
+        @mkdir(BP . '/var/log');
         $writer = new \Zend\Log\Writer\Stream(BP . '/var/log/webgility.log');
         $logger = new \Zend\Log\Logger();
         $this->_logger = $logger;
@@ -75,7 +78,7 @@ class Orderplaceafter implements ObserverInterface {
                     $logger->info('Component Mode: ' . strtolower($payment_additional_info['component_mode']));
                 }
 
-//        $increment_id_prefix = substr($orders['increment_id'], 0, 2);                
+//        $increment_id_prefix = substr($orders['increment_id'], 0, 2);
 //        if ($increment_id_prefix === 'WP' && isset($payment_additional_info['component_mode']) && strtolower($payment_additional_info['component_mode']) === 'ebay' && isset($payment['method']) && strtolower(trim($payment['method'])) === 'm2epropayment') {
                 //store id 5 = Wheel Accessories store
                 if (strtolower($order->getState()) === 'new' && intval($store_id) === 5 && isset($payment_additional_info['component_mode']) && strtolower($payment_additional_info['component_mode']) === 'ebay' && isset($payment['method'])) {
@@ -85,7 +88,7 @@ class Orderplaceafter implements ObserverInterface {
 //get the order product skus
                     foreach ($items as $k => $item) {
                         $sku = $item->getSku();
-                        $logger->info('Item Status: ' . $item->getStatus());                        
+                        $logger->info('Item Status: ' . $item->getStatus());
 
                         $connection = $this->_objectManager->get('\Magento\Framework\App\ResourceConnection')->getConnection();
 //                    $sku = '1012BOW.2';
