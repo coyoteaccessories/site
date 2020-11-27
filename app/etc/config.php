@@ -288,6 +288,7 @@ return [
         'ChargeLogic_Connect' => 1,
         'Clarion_CustomerAttribute' => 1,
         'ClassyLlama_AvaTax' => 1,
+        'Coyote_Core' => 1,
         'Custom_Coyote' => 1,
         'Dotdigitalgroup_Email' => 0,
         'Dotdigitalgroup_Chat' => 0,
