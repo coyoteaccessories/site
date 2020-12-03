@@ -151,9 +151,7 @@ class ShipmentRepository implements \Magento\Sales\Api\ShipmentRepositoryInterfa
 			# 1) "Enrich the «The shipment couldn't be saved» message": https://github.com/coyoteaccessories/site/issues/8
 			# 2) @todo "Refactor the `Magento\Sales\Model\Order\ShipmentRepository::save()` method's patch to a plugin":
 			# https://github.com/coyoteaccessories/site/issues/9
-            throw new CouldNotSaveException(
-            	__("The shipment couldn't be saved.\n" . $e->getMessage() . "\n" . $e->getTraceAsString()), $e
-			);
+            throw new CouldNotSaveException(__("The shipment couldn't be saved."), $e);
         }
 
         return $this->registry[$entity->getEntityId()];
