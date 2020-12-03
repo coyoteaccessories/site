@@ -29,11 +29,6 @@
 # 2020-11-21 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
 # «A wrong PayPal Express Checkout Token is specified»: https://github.com/coyoteaccessories/site/issues/5
 !/vendor/magento/module-paypal/Controller/Express/AbstractExpress.php
-# 2020-12-02 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
-# 1) "Enrich the «The shipment couldn't be saved» message": https://github.com/coyoteaccessories/site/issues/8
-# 2) @todo "Refactor the `Magento\Sales\Model\Order\ShipmentRepository::save()` method's patch to a plugin":
-# https://github.com/coyoteaccessories/site/issues/9
-!/vendor/magento/module-sales/Model/Order/ShipmentRepository.php
 # 2020-11-26 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
 # It was changed by someone at 2020-09-02
 !/vendor/magento/module-sales/etc/webapi.xml
