@@ -147,10 +147,6 @@ class ShipmentRepository implements \Magento\Sales\Api\ShipmentRepositoryInterfa
             $this->metadata->getMapper()->save($entity);
             $this->registry[$entity->getEntityId()] = $entity;
         } catch (\Exception $e) {
-        	# 2020-12-02 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
-			# 1) "Enrich the «The shipment couldn't be saved» message": https://github.com/coyoteaccessories/site/issues/8
-			# 2) @todo "Refactor the `Magento\Sales\Model\Order\ShipmentRepository::save()` method's patch to a plugin":
-			# https://github.com/coyoteaccessories/site/issues/9
             throw new CouldNotSaveException(__("The shipment couldn't be saved."), $e);
         }
 
