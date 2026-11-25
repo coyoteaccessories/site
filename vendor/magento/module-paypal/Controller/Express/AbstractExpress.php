@@ -191,7 +191,7 @@ abstract class AbstractExpress extends AppAction implements
         if (null !== $setToken) {
             if (false === $setToken) {
                 // security measure for avoid unsetting token twice
-                # 2020-11-21 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+                # 2020-11-21 Dmitry Fedyuk https://github.com/dmitrii-fediuk
                 /*if (!$this->_getSession()->getExpressCheckoutToken()) {
                     throw new \Magento\Framework\Exception\LocalizedException(
                         __('PayPal Express Checkout Token does not exist.')
@@ -205,7 +205,7 @@ abstract class AbstractExpress extends AppAction implements
         }
         $setToken = $this->getRequest()->getParam('token');
         if ($setToken) {
-            # 2020-11-21 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+            # 2020-11-21 Dmitry Fedyuk https://github.com/dmitrii-fediuk
             # «A wrong PayPal Express Checkout Token is specified»: https://github.com/coyoteaccessories/site/issues/5
            /* if ($setToken !== $this->_getSession()->getExpressCheckoutToken()) {
                 throw new \Magento\Framework\Exception\LocalizedException(

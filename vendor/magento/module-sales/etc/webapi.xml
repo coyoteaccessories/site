@@ -13,7 +13,7 @@
             <resource ref="Magento_Sales::actions_view" />
         </resources>
     </route>
-<!-- 2020-11-26 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+<!-- 2020-11-26 Dmitry Fedyuk https://github.com/dmitrii-fediuk
 It was changed by someone at 2020-09-02 -->
     <route url="/V1/orderAddresses" method="GET">
         <service class="Magento\Sales\Api\OrderAddressRepositoryInterface" method="getList"/>

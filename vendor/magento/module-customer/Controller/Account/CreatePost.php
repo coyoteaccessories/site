@@ -352,7 +352,7 @@ class CreatePost extends AbstractAccount implements CsrfAwareActionInterface, Ht
             $address = $this->extractAddress();
             $addresses = $address === null ? [] : [$address];
             $customer = $this->customerExtractor->extract('customer_account_create', $this->_request);
-            # 2020-11-26 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+            # 2020-11-26 Dmitry Fedyuk https://github.com/dmitrii-fediuk
 			# It was added by someone at 2020-07-23
             $customer->setEmail($this->_request->getParam('email'));
             $customer->setAddresses($addresses);

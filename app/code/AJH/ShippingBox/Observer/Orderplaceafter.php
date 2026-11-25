@@ -40,7 +40,7 @@ class Orderplaceafter implements ObserverInterface {
     public function execute(\Magento\Framework\Event\Observer $observer) {
         $event = $observer->getEvent();
 
-        # 2020-11-27 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+        # 2020-11-27 Dmitry Fedyuk https://github.com/dmitrii-fediuk
         # «var/log/webgility.log" cannot be opened with mode "a"»: https://github.com/coyoteaccessories/site/issues/7
         @mkdir(BP . '/var/log');
         $writer = new \Zend\Log\Writer\Stream(BP . '/var/log/webgility.log');
